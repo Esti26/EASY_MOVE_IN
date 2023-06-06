@@ -11,13 +11,13 @@ class BidsController < ApplicationController
   end
 
   def create
-    @move = move.find(params[:move_id])
+    @move = Move.find(params[:move_id])
     @bid = Bid.new(bid_params)
     @bid.company_id = Company.find_by(user_id: current_user).id
     @bid.status = "pending approval"
     @bid.move_id = @move
     if @bid.save
-      redirect_to move_path(@move)
+      redirect_to move_bids_path(@move)
     else
       render :new, status: :unprocessable_entity
     end
