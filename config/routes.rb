@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :moves do
     resources :bids
   end
-  get "/moves", to: "moves#client_index", as: "client"
-  get "/moves", to: "moves#company_index", as: "company"
+  get "/clients", to: "moves#client_index", as: "client"
+  get "/companies", to: "moves#company_index", as: "company"
   resources :company do
     resources :review, only: %i[new create edit delete update]
   end
