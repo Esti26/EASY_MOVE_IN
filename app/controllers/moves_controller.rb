@@ -1,7 +1,6 @@
 class MovesController < ApplicationController
   before_action :set_move, only: %i[show edit update destroy]
 
-
   def show
     @current_user = current_user
     @moves = Move.all
