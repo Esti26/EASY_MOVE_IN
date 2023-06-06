@@ -1,9 +1,6 @@
 class MovesController < ApplicationController
   before_action :set_move, only: %i[show edit update destroy]
 
-  def index
-    @moves = Move.all
-  end
 
   def show
     @current_user = current_user
@@ -12,7 +9,6 @@ class MovesController < ApplicationController
   end
 
   def new
-    @move = Move.new
   end
 
   def create
@@ -26,11 +22,12 @@ class MovesController < ApplicationController
   end
 
   def edit
+    @move = Move.new
   end
 
   def update
     if @move.update(move_params)
-      redirect_to @move, notice: 'wig was successfully updated.'
+      redirect_to move_path, notice: 'move was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +35,7 @@ class MovesController < ApplicationController
 
   def destroy
     @move.destroy
-    redirect_to moves_url, notice: 'move was successfully destroyed'
+    redirect_to moves_path, notice: 'move was successfully destroyed'
   end
 
   def client_index
