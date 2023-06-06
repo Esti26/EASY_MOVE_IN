@@ -1,25 +1,37 @@
-
 <div class="d-flex justify-content-center add-wig">
   <h1 class = "d-flex justify-content-center">Choose a move and place a bid!</h1>
 </div>
-<div class="container-fluid d-flex justify-content-center align-items-center flex-wrap bigboy">
-  <% @moves.each do |move| %>
-    <div id = "card-div" class="card mx-5 my-3 d-flex justify-content-center shadow-lg mb-5 bg-white " style="width: 16rem;">
-      <%= link_to  move_path(move.id), data:{}, class:"move-card text-decoration-none text-dark", title: "show this move" do%>
-        <div class="card-body fullcard">
-          <div class="card-header d-flex justify-content-center">
-            <h3 class="titletext"> <%= move.date %> <hr class="solid"> </h3>
+<div class="container" width=50%>
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  </form>
+<button> Filter moves</button>
+  <div class="container-fluid d-flex justify-content-center align-items-center flex-wrap bigboy">
+    <% @moves.each do |move| %>
+      <div id = "card-div" class="card mx-5 my-3 d-flex justify-content-center shadow-lg mb-5 bg-white " style="width: 28rem;">
+        <%= link_to  move_path(move.id), data:{}, class:"move-card text-decoration-none text-dark", title: "show this move" do%>
+          <div class="card-body fullcard">
+            <div class="card-header d-flex justify-content-center">
+              <h3 class="titletext"> <%= move.date.strftime("%A, %d %b %Y %l:%M %p") %> <hr class="solid"> </h3>
+            </div>
+            <br>
+            <br>
+            <div>
+              <h5 class="card-title"> <i class="fa-solid fa-ruler-vertical" style="color: #000000;"></i> <%= move.start_point %></h5>
+              <h5 class="card-title"> <i class="fa-solid fa-tag" style="color: #000000;"></i> <%= move.end_point %></h5>
+              <div class ="d-flex justify-content-between mx-1">
+                <%= link_to "Details", move_path(move.id), class: "order-1 btn btn-success text-light" %>
+                <%= link_to "Add a bid", new_move_bid_path(move.id), class: "order-1 btn btn-success text-light" %>
+              </div>
+            </div>
           </div>
-            <div class="text">See details</div>
-          </div>
-          <br>
-          <br>
-          <h5 class="card-title"> <i class="fa-solid fa-ruler-vertical" style="color: #000000;"></i> <%= move.start_point %></h5>
-          <h5 class="card-title"> <i class="fa-solid fa-tag" style="color: #000000;"></i> <%= move.end_point %></h5>
-          <div class ="d-flex justify-content-between " style = "margin-left: -130px;">
-          </div>
+          <%end%>
         </div>
-      </div>
     <%end%>
-  <%end%>
+  </div>
 </div>

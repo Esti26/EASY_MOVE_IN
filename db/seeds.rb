@@ -41,9 +41,9 @@ Client.create(user_id: User.find_by(first_name: "William").id)
 
 puts "Creating Move"
 Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 10, Berlin", end_point: "Sonnenallee 213, Berlin", shipment_info: "I need a lift", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 14, Berlin", end_point: "Sonnenallee 232, Berlin", shipment_info: "My biggest item is a piano", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 13, Berlin", end_point: "Sonnenallee 23, Berlin", shipment_info: "I need to transport my kitchen", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 12, Berlin", end_point: "Sonnenallee 203, Berlin", shipment_info: "I don't have a lift", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 10, 12, 0, 0), start_point: "Oranienstr. 14, Berlin", end_point: "Sonnenallee 232, Berlin", shipment_info: "My biggest item is a piano", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 2, 13, 0, 0), start_point: "Oranienstr. 13, Berlin", end_point: "Sonnenallee 23, Berlin", shipment_info: "I need to transport my kitchen", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 23, 14, 0, 0), start_point: "Oranienstr. 12, Berlin", end_point: "Sonnenallee 203, Berlin", shipment_info: "I don't have a lift", status:"pending", expiration: expiration_date)
 
 puts "Creating Review"
 Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by(first_name: "Esti").id, average_rating: 3,efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
