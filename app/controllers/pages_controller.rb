@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def new
+
     @move = Move.new
   end
 
@@ -16,14 +17,17 @@ class PagesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
   end
 
   def log_in
     @user = User.find(:email, :password)
+
   end
 
   private
   def move_params
     params.require(:wig).permit(:color, :length, :owner_id, :price, :image_url, :title, :description, :photo, :color_code)
+
   end
 end
