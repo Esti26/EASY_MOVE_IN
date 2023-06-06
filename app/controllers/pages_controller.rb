@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def new
-
     @move = Move.new
   end
 
