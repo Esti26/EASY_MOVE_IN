@@ -34,4 +34,3 @@ Move.create(client_id: User.find_by(first_name: "Esti"), date: Datetime.new(2023
 Move.create(client_id: User.find_by(first_name: "Ahmed"), date: Datetime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 14, Berlin", end_point: "Sonnenallee 232, Berlin", shipment_info: "My biggest item is a piano", status:"pending", expiration: expiration_date)
 Move.create(client_id: User.find_by(first_name: "William"), date: Datetime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 13, Berlin", end_point: "Sonnenallee 23, Berlin", shipment_info: "I need to transport my kitchen", status:"pending", expiration: expiration_date)
 Move.create(client_id: User.find_by(first_name: "Madhava"), date: Datetime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 12, Berlin", end_point: "Sonnenallee 203, Berlin", shipment_info: "I don't have a lift", status:"pending", expiration: expiration_date)
-
