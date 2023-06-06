@@ -1,0 +1,52 @@
+#login-div {
+  height: 85vh;
+  background: linear-gradient(172deg, rgba(135,129,221,1) 33%, rgba(150,55,200,1) 84%);
+  border-radius: 10px;
+  width: 30%;
+ padding-inline: ;
+
+
+
+  input[type="email"], input[type="password"]  {
+    background-color: transparent !important;
+    width: 20vw;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid white;
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+    &::placeholder{
+      color: white;
+    }
+
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .login-button{
+    width: 110px;
+    background-color:white;
+    border-radius: 45px;
+    text-decoration:none ;
+    transition: 1s;
+    height: 50px;
+
+    &:hover{
+    background: linear-gradient(172deg, rgba(152,146,231,1) 9%, rgba(141,76,241,1) 41%, rgba(205,60,240,1) 80%);
+    text-decoration-color: white;
+    transition: 0.5s;
+    // color: white;
+  }
+  }
+  .text-light a{
+    text-decoration: none;
+    color: white;
+  }
+
+}
