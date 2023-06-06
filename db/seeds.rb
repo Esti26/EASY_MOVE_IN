@@ -45,6 +45,7 @@ Review.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(fi
 Review.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), average_rating: 4,efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!" )
 Review.new(company_id: Company.find_by(name: "Realiable Move"), client_id:User.find_by(first_name: "Madhava"), average_rating: 5,efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
+
 # Message.new(content:"Hey were are you? I am downstairs but cannot see you")
 # Message.new(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late")
 # Message.new(content:"40 minutes have passed but still cannot see you. Are you coming?")
@@ -54,3 +55,4 @@ Review.new(company_id: Company.find_by(name: "Realiable Move"), client_id:User.f
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late", status: "read"))
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"40 minutes have passed but still cannot see you. Are you coming?", status: "read"))
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"Yes! Still stuck in the traffic jam. Will be another 20 minutes late. Sorry for the inconveniences.", status: "read"))
+
