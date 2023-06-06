@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get "/moves", to: "moves#client_index", as: "client"
   get "/moves", to: "moves#company_index", as: "company"
   resources :company do
-    resources :review, only: %i[new create edit delete]
+    resources :review, only: %i[new create edit delete update]
   end
 end
