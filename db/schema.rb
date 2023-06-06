@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_094946) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_085937) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_094946) do
   create_table "companies", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "address"
+    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
@@ -75,14 +76,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_094946) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "company_id", null: false
+    t.integer "average_rating"
     t.integer "efficiency_rating"
-    t.integer "punctuality_raing"
+    t.integer "punctuality_rating"
     t.integer "politeness_rating"
     t.string "image"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "average_rating"
     t.index ["client_id"], name: "index_reviews_on_client_id"
     t.index ["company_id"], name: "index_reviews_on_company_id"
   end
@@ -96,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_094946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.string "profile_pic"
     t.string "first_name"
     t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
