@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   def index
+    @bids = Bid.all
   end
 
   def show
@@ -11,13 +12,15 @@ class BidsController < ApplicationController
   end
 
   def create
-    @move = Move.find(params[:move_id])
     @bid = Bid.new(bid_params)
-    @bid.company_id = Company.find_by(user_id: current_user).id
-    @bid.status = "pending approval"
-    @bid.move_id = @move
-    if @bid.save
-      redirect_to move_bids_path(@move)
+    @move = Move.find(params[:move_id])
+    @bid.move_id = @move.id
+    @company = Company.find_by(user_id: current_user.id)
+    @bid.company_id = @company.id
+    @bid.status = "open"
+    @bid.expiration = false
+    if @bid.save!
+      redirect_to company_bids_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,6 +38,6 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:price, :status, :expiration, :move_id, :company_id, :move_id)
+    params.require(:bid).permit(:price, :status, :expiration, :move_id, :company_id)
   end
 end
