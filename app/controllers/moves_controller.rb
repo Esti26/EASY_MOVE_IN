@@ -8,13 +8,14 @@ class MovesController < ApplicationController
   end
 
   def new
+    @move = Move.new()
   end
 
   def create
     @move = Move.new(move_params)
-    @move.owner = current_user
+    @move.client_id = current_user.id
     if @move.save
-      redirect_to moves_path, notice: 'moves was successfully created.'
+      redirect_to client_path, notice: 'moves was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +27,7 @@ class MovesController < ApplicationController
 
   def update
     if @move.update(move_params)
-      redirect_to move_path, notice: 'move was successfully updated.'
+      redirect_to @move, notice: 'move was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +35,7 @@ class MovesController < ApplicationController
 
   def destroy
     @move.destroy
-    redirect_to moves_path, notice: 'move was successfully destroyed'
+    redirect_to client_path, notice: 'move was successfully destroyed'
   end
 
   def client_index
@@ -52,6 +53,6 @@ class MovesController < ApplicationController
   end
 
   def move_params
-    params.require(:move).permit(:date, :start_point, :end_point, :shipment_info, :status, :expiration)
+    params.require(:move).permit(:date, :start_point, :end_point, :shipment_info)
   end
 end
