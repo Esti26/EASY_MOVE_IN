@@ -1,18 +1,18 @@
-<h1>Welcome</h1>
 
-<div class="container d-flex justify-content-center ">
-  <div class="card-container col-15"> My moves
-    <% @moves.each do |move|%>
-    <div class="card">
-      <%= move.date %>
-      <%= move.start_point %>
-      <%= move.end_point %>
-      <%= move.shipment_info %>
-      <%= move.status %>
-      <%= move.expiration %>
-      <%= link_to "Edit", edit_move_path(move.id), class: "order-1 btn btn-success text-light" %>
-      <%= link_to "", move_path(move.id),  class: "order-3 btn btn-outline-danger fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<div class="container d-flex justify-content-center">
+  <% @moves.each do |move|%>
+  <div class="card col-8 ">
+    <h5 class="card-header d-flex justify-content-center">move</h5>
+    <div class="card-body">
+      <h5 class="card-title">Moving at : <%= Time.at(move.date) %> UTC</h5>
+      <h5 class="card-text"><%= move.start_point %></h5>
+      <h5 class="card-text"><%= move.end_point %></h5>
+      <div class="d-flex justify-content-between">
+        <a href= " moves(move.id)" class="btn btn-primary">See details</a>
+        <%= link_to "Edit", edit_move_path(move.id), class: "order-1 btn btn-success text-light" %>
+        <%= link_to "", move_path(move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
     </div>
+    <% end %>
   </div>
-
 </div>
