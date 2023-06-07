@@ -56,4 +56,4 @@ class CompaniesController < ApplicationController
 #   def bid_params
 #     params.require(:bid).permit(:price, :status, :expiration)
 #   end
-# end
+end
