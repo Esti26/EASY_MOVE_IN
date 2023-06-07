@@ -1,7 +1,11 @@
 class BidsController < ApplicationController
   def index
-    @company = Company.find_by(user_id: current_user.id)
-    @bids = Bid.where(company_id: @company.id)
+    if @company = Company.find_by(user_id: current_user.id)
+      @bids = Bid.where(company_id: @company.id)
+    else
+      @move = Move.find(params[:move_id])
+      @bids = Bid.where(move_id: @move.id)
+    end
   end
 
   def show
