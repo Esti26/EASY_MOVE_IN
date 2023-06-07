@@ -4,7 +4,7 @@ class MovesController < ApplicationController
   def show
     @current_user = current_user
     @moves = Move.all
-    @move = Move.where(move_id: params[:id]).first
+    @move = Move.find(params[:id])
   end
 
   def new

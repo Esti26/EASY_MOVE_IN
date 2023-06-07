@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_085937) do
   end
 
   create_table "moves", force: :cascade do |t|
-    t.integer "date"
+    t.datetime "date"
     t.string "start_point"
     t.string "end_point"
     t.text "shipment_info"
