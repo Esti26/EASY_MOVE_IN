@@ -19,6 +19,7 @@ gem "puma", "~> 5.0"
 # gem 'webpacker', '~> 6.0'
 # gem 'webpacker', '~> 6.0'
 
+# gem 'webpacker', '~> 6.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
