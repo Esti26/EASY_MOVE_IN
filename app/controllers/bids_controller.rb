@@ -9,6 +9,10 @@ class BidsController < ApplicationController
   end
 
   def show
+    @bid = Bid.find(params[:id])
+    @current_user = current_user
+    @bids = Bid.all
+    @bid = Bid.where(bid_id: params[:id]).first
   end
 
   def new
