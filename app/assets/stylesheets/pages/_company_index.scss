@@ -1,6 +1,8 @@
 #company-index{
   .left-container {
     width: 80%;
+    color: black;
+    text-align: center;
   }
   .right-container {
     width: 20%;
@@ -21,6 +23,11 @@
     .search-form {
       width: 80%;
     }
-
+  }
+  h1 {
+    text-align: center;
+  }
+  .container{
+    margin: 30px;
   }
 }
