@@ -31,14 +31,14 @@
         <%= form.text_field :end_point, required: true, placeholder: '    To where?' %>
         <label for="endPointInput"></label>
       </div>
-      <button id="nextBtn1" type="button">Next</button>
+      <button id="nextBtn1" class="button"   type="button">Next</button>
     </div>
     <div id="page2" class="page">
       <h2>Tell us about your move</h2>
       <div class="input-container">
         <%= form.text_area :shipment_info, required: true, placeholder: '' %>
-        <button id="prevBtn1" type="button">Previous</button>
-        <button id="submitBtn" type="submit">Submit</button>
+        <button id="prevBtn1" class="button" type="button">Previous</button>
+        <button id="submitBtn" class="button" type="submit">Submit</button>
       </div>
     </div>
   <% end %>
