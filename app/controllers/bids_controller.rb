@@ -1,9 +1,18 @@
 class BidsController < ApplicationController
   def index
-    @bids = Bid.all
+    if @company = Company.find_by(user_id: current_user.id)
+      @bids = Bid.where(company_id: @company.id)
+    else
+      @move = Move.find(params[:move_id])
+      @bids = Bid.where(move_id: @move.id)
+    end
   end
 
   def show
+    @bid = Bid.find(params[:id])
+    @current_user = current_user
+    @bids = Bid.all
+    @bid = Bid.where(bid_id: params[:id]).first
   end
 
   def new
@@ -32,7 +41,10 @@ class BidsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @bid = Bid.find(params[:id])
+    @bid.destroy
+    redirect_to company_bids_path, notice: 'move was successfully destroyed'
   end
 
   private

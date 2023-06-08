@@ -1,18 +1,22 @@
-
-<div class="container d-flex justify-content-center">
-  <% @moves.each do |move|%>
-  <div class="card col-8 ">
-    <h5 class="card-header d-flex justify-content-center">move</h5>
-    <div class="card-body">
-      <h5 class="card-title">Moving at : <%= Time.at(move.date) %> UTC</h5>
-      <h5 class="card-text"><%= move.start_point %></h5>
-      <h5 class="card-text"><%= move.end_point %></h5>
-      <div class="d-flex justify-content-between">
-        <a href= " moves(move.id)" class="btn btn-primary">See details</a>
-        <%= link_to "Edit", edit_move_path(move.id), class: "order-1 btn btn-success text-light" %>
-        <%= link_to "", move_path(move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<div class="conatiner m-3 allign-content-center">
+  <h1>My published moves</h1>
+  <%= link_to "Add a new move", new_move_path, class: "order-1 btn btn-success text-light allign-content-center" %>
+  <br>
+  <div class="container d-flex justify-content-between m-4" style="width=99">
+    <% @moves.each do |move|%>
+      <div class="card col-8 ">
+        <h5 class="card-header d-flex justify-content-center">move</h5>
+        <div class="card-body">
+          <h5 class="card-title">Moving at : <%= Time.at(move.date) %> UTC</h5>
+          <h5 class="card-text"><%= move.start_point %></h5>
+          <h5 class="card-text"><%= move.end_point %></h5>
+          <div class="d-flex justify-content-between">
+            <%= link_to "See details", move_path(move.id), class: "order-1 btn btn-primary text-light" %>
+            <%= link_to "Edit", edit_move_path(move.id), class: "order-1 btn btn-success text-light" %>
+            <%= link_to "", move_path(move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>

@@ -2,6 +2,8 @@ class CompaniesController < ApplicationController
   # before_action :set_move, only: %i[show destroy]
   before_action :set_bid, only: %i[edit update destroy]
 
+
+
   def show
     @move = Move.find(params[:id])
     @current_user = current_user
@@ -47,11 +49,11 @@ class CompaniesController < ApplicationController
   #   @move = Move.find(params[:id])
   # end
 
-  def set_bid
-    @my_bid = Bid.find(params[:id])
-  end
+#   def set_bid
+#     @my_bid = Bid.find(params[:id])
+#   end
 
-  def bid_params
-    params.require(:bid).permit(:price, :status, :expiration)
-  end
+#   def bid_params
+#     params.require(:bid).permit(:price, :status, :expiration)
+#   end
 end
