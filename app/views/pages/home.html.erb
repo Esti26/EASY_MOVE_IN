@@ -1,30 +1,43 @@
-<div class="container-full strip d-flex justify-content-center">
+<div class="container-full d-flex justify-content-center">
 </div>
 <div id="homepage" class="container-full">
   <%= image_tag "https://images.unsplash.com/photo-1614359835514-92f8ba196357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" %>
   <div class="text">
-    <h2 class="welcome">  Welcome to the best move of your life
-    </h2>
+    <h2 class="welcome">Welcome to the best move of your life</h2>
   </div>
-
 </div>
-<div class="container-full" >
+<div class="container-full">
   <div class="d-flex justify-content-center">
     <h1>How it works</h1>
     <hr class="solid">
   </div>
 </div>
-
-<div class="container m-3">
-<%= simple_form_for [@move] do |f| %>
-  <%= f.input :date %>
-  <%# as: :string, %>
-  <%# # input_html: { data: { controller: "datepicker" , action:"change->move-calculations#daysRented", "rental-calculations-target": "start"} } %>
-  <%= f.input :start_point %>
-  <%= f.input :end_point %>
-  <%= f.input :shipment_info %>
-  <%# <p data-rental-calculations-target="days" > </p> %>
-  <%# <p data-rental-calculations-target="price" > </p> %>
-  <%= f.submit "Submit", :class => "btn btn-success btn-mini" %>
-<% end %>
+<div id="homeform" class="container">
+  <%= form_with(id: 'form') do |form| %>
+    <div id="page1" class="page">
+    <h2>When and where?</h2>
+      <div class="input-container">
+        <i class="fa-solid fa-calendar" style="color: #f66b0e;"></i>
+        <%= form.text_field :date, required: true, class: 'date-input', placeholder: '' %>
+        <label for="dateInput"></label>
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-location-dot" style="color: #f66b0e;"></i>
+        <%= form.text_field :start_point, required: true, placeholder: '' %>
+        <label for="startPointInput"></label>
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-location-pin" style="color: #f66b04;"></i>
+        <%= form.text_field :end_point, required: true, placeholder: '' %>
+        <label for="endPointInput"></label>
+      </div>
+      <button id="nextBtn1" type="button">Next</button>
+    </div>
+    <div id="page2" class="page">
+      <h2>Tell us about your move</h2>
+      <%= form.text_area :shipment_info, required: true %>
+      <button id="prevBtn1" type="button">Previous</button>
+      <button id="submitBtn" type="submit">Submit</button>
+    </div>
+  <% end %>
 </div>
