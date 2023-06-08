@@ -1,12 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: rgb(17, 43, 60);
-  height: 70px;
+  background-color: $dk-blue;
+  height: 65px;
   display: flex;
   align-items: center;
 }
-
-
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -20,4 +18,13 @@
   color: rgb(246, 107, 14);
   margin-top: 5px ;
   font-size: 30px;
+}
+
+.company{
+  color: rgb(246, 107, 14);
+  text-decoration: none;
+}
+
+.logo{
+  border-radius: 10%;
 }
