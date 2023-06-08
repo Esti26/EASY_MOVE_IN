@@ -1,10 +1,10 @@
-<div class="conatiner m-3 allign-content-center">
+<div class="conatiner m-3 allign-content-center justify-content-center">
   <h1>My published moves</h1>
   <%= link_to "Add a new move", new_move_path, class: "order-1 btn btn-success text-light allign-content-center" %>
   <br>
-  <div class="container d-flex justify-content-between m-4" style="width=99">
+  <div class="container d-flex justify-content-between m-4 flex-wrap" style="width=99">
     <% @moves.each do |move|%>
-      <div class="card col-8 ">
+      <div class="card col-8 mb-5">
         <h5 class="card-header d-flex justify-content-center">move</h5>
         <div class="card-body">
           <h5 class="card-title">Moving at : <%= Time.at(move.date) %> UTC</h5>
