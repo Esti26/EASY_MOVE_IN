@@ -1,0 +1,26 @@
+#company-index{
+  .left-container {
+    width: 80%;
+  }
+  .right-container {
+    width: 20%;
+  }
+  i{
+    color: rgb(246, 107, 14);
+    ;
+  }
+  .image{
+      position: sticky;
+      top: 0;
+  }
+  .form-container {
+    width:100%;
+    .filter-form {
+      width: 20%;
+    }
+    .search-form {
+      width: 80%;
+    }
+
+  }
+}
