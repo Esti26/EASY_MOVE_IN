@@ -40,16 +40,33 @@ Client.create(user_id: User.find_by(first_name: "Madhava").id)
 Client.create(user_id: User.find_by(first_name: "William").id)
 
 puts "Creating Move"
-Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Oranienstr. 10, Berlin", end_point: "Sonnenallee 213, Berlin", shipment_info: "I need a lift", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 10, 12, 0, 0), start_point: "Oranienstr. 14, Berlin", end_point: "Sonnenallee 232, Berlin", shipment_info: "My biggest item is a piano", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 2, 13, 0, 0), start_point: "Oranienstr. 13, Berlin", end_point: "Sonnenallee 23, Berlin", shipment_info: "I need to transport my kitchen", status:"pending", expiration: expiration_date)
-Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 23, 14, 0, 0), start_point: "Oranienstr. 12, Berlin", end_point: "Sonnenallee 203, Berlin", shipment_info: "I don't have a lift", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 7, 24, 11, 0, 0), start_point: "Oranienstr. 110, Berlin", end_point: "Sonnenallee 213, Berlin", shipment_info: "I need a lift", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 6, 20, 11, 0, 0), start_point: "Bernauerstr. 130, Berlin", end_point: "Leipzigerstr 13, Berlin", shipment_info: "I need a box", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 7, 29, 11, 0, 0), start_point: "Rosenthalerstr. 120, Berlin", end_point: "Alexanderplatz 3, Berlin", shipment_info: "I need someone to carry my stuff", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Esti").id, date: DateTime.new(2023, 6, 30, 11, 0, 0), start_point: "Charlottenstr. 150, Berlin", end_point: "Lindenstr. 1, Berlin", shipment_info: "My biggest item is a piano", status:"confirmed", expiration: expiration_date)
+
+Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 10, 12, 0, 0), start_point: "Oranienstr. 14, Berlin", end_point: "Frankfurter Tor 232, Berlin", shipment_info: "My biggest item is a sofa", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 24, 12, 0, 0), start_point: "Bernauerstr. 14, Berlin", end_point: "Leipzigerstr 232, Berlin", shipment_info: "My biggest item is a fridge", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 10, 12, 0, 0), start_point: "Rosenthalerstr. 14, Berlin", end_point: "Lindenstr. 232, Berlin", shipment_info: "My biggest item is a piano", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Ahmed").id, date: DateTime.new(2023, 6, 10, 12, 0, 0), start_point: "Charlottenstr. 14, Berlin", end_point: "Alexanderplatz 232, Berlin", shipment_info: "My biggest item is a piano", status:"confirmed", expiration: expiration_date)
+
+Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 2, 13, 0, 0), start_point: "Oranienstr. 3, Berlin", end_point: "Sonnenallee 23, Berlin", shipment_info: "I need to transport my kitchen", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 24, 13, 0, 0), start_point: "Bernauerstr. 3, Berlin", end_point: "Leipzigerstr 23, Berlin", shipment_info: "No elevator", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 2, 13, 0, 0), start_point: "Rosenthalerstr. 13, Berlin", end_point: "Lindenstr. 23, Berlin", shipment_info: "I need to transport my kitchen", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "William").id, date: DateTime.new(2023, 7, 2, 13, 0, 0), start_point: "Charlottenstr. 13, Berlin", end_point: "Alexanderplatz 23, Berlin", shipment_info: "I need to transport my kitchen", status:"confirmed", expiration: expiration_date)
+
+Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 7, 23, 15, 0, 0), start_point: "Oranienstr. 12, Berlin", end_point: "Sonnenallee 203, Berlin", shipment_info: "I don't have a lift", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 24, 14, 0, 0), start_point: "Bernauerstr. 12, Berlin", end_point: "Leipzigerstr 203, Berlin", shipment_info: "I need to transport my kitchen", status:"open", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 23, 11, 0, 0), start_point: "Rosenthalerstr. 12, Berlin", end_point: "Lindenstr. 203, Berlin", shipment_info: "I need a box", status:"pending", expiration: expiration_date)
+Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 7, 23, 10, 0, 0), start_point: "Charlottenstr. 12, Berlin", end_point: "Alexanderplatz 203, Berlin", shipment_info: "My biggest item is a piano", status:"confirmed", expiration: expiration_date)
+
 
 puts "Creating Review"
 Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by(first_name: "Esti").id, average_rating: 3,efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
 Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by(first_name: "Madhava").id, average_rating: 4,efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!" )
 Review.new(company_id: Company.find_by(name: "Realiable Move").id, client_id:User.find_by(first_name: "Madhava").id, average_rating: 5,efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
+# puts "Creating Bids"
 # Message.new(content:"Hey were are you? I am downstairs but cannot see you")
 # Message.new(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late")
 # Message.new(content:"40 minutes have passed but still cannot see you. Are you coming?")
