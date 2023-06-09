@@ -1,18 +1,18 @@
-<div id = "login-div" class="container justify-content-center ">
+<div id="login-div" class="container justify-content-center ">
   <div class="d-flex justify-content-center align-items-center">
     <img style ="margin-top: 50px; margin-bottom: 20px;" src="https://static.vecteezy.com/system/resources/previews/010/844/829/non_2x/a-moving-truck-logo-design-concepts-for-a-movers-or-moving-truck-company-it-can-be-used-for-a-transport-services-company-logo-vector.jpg" alt="logo">
   </div>
-    <span class = "d-flex justify-content-center text-light"><h1>LOG IN</h1></span>
-  <div class="container d-flex justify-content-center align-items-center">
+    <span class = "d-flex justify-content-center text-light"><h2>LOG IN</h2></span>
+  <div id = "input-div"class="container d-flex justify-content-center align-items-center" >
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs text-light ">
         <%= f.input :email,
                     required: false,label: false,
                     autofocus: true,
-                    input_html: { autocomplete: "email" , class: "login-input", placeholder: "Email"} %>
+                    input_html: { autocomplete: "email" , class: "login-input mb-1", placeholder: "Email"} %>
         <%= f.input :password,
                     required: false,label: false,
-                    input_html: { autocomplete: "current-password" , class: "login-input text-light", placeholder: "password"} %>
+                    input_html: { autocomplete: "current-password" , class: "login-input text-light mb-1", placeholder: "password"} %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
@@ -22,5 +22,6 @@
     <% end %>
 
   </div>
-  <div class="d-flex justify-content-between mt-5 text-light" style="margin-top: 50px;"><%= render "devise/shared/links" %></div>
+  <div id= "forgot-pass-div" class="d-flex justify-content-end text-light" ><%= render "devise/shared/links" %>
+  </div>
 </div>
