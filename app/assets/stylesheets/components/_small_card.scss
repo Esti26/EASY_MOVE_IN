@@ -1,10 +1,12 @@
 .small-card{
   padding: 18px;
-  background-color: #205375;
+  color: white;
+  background-color: $dk-blue;
+  border-radius: 10px;
   font-family: 'Architects Daughter', cursive ;
   font-size: 20px;
   box-shadow: 5px 5px 5px grey;
-  transition: .5s all ease-in-out;
+  transition: .2s all ease-in-out;
   width: 24rem;
   &:hover {
     box-shadow: 5px 5px 15px grey;
