@@ -43,10 +43,18 @@
           </div>
 
           <div calss = " d-flex align-items-end ">
-            <h6 class ="expiring-time"style="margin-top: -15px; margin-left: 50px;">Bid ends in 1d 12:32:16</h6>
             <%= button_to "hire", move_bid_path(bid.move_id, bid.id), method: :get, :class => "hire-button small_button_goal"%>
-            <%= button_to "see details", move_bid_path(bid.move_id, bid.id),method: :get, :class => "details-button small_button"%>
+            <%= button_to "details", move_bid_path(bid.move_id, bid.id),method: :get, :class => "details-button small_button"%>
           </div>
+            <div>
+            <%if bid.status == "open"%>
+              <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
+            <%elsif bid.status = "pending"%>
+              <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
+             <%elsif bid.status = "confirmed"%>
+              <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+              <%end%>
+            </div>
         </div>
       <%end %>
     </div>
