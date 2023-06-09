@@ -1,7 +1,7 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "THELOGO.png", alt: "logo", class: "logo" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,15 +20,14 @@
                 <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Dashboard", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Dashboard", client_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
             <li class="nav-item">
               <%= link_to new_user_session_path, id: "login", class: "nav-link " do %>
-                <h4 class= "company">I am a Company &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-right-to-bracket"></i></h4>
+                <h4 class= "company">I am a Company &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-user" style="color: #f66b0e; font-size: 25px;"></i></h4>
               <% end %>
             </li>
           <% end %>
