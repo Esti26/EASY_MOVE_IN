@@ -1,13 +1,15 @@
-.button{
+.small_button{
   background-color: rgb(246, 107, 14);
   font-family: 'Hind', sans-serif;
   color: white;
-  border-radius: 7%;
+  border-radius: 7px;
   border: none;
-  padding: 15px 32px;
+  // padding: 15px 32px;
   text-align: center;
+  width: 100px;
+  height: 40px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 22px;
   transition: .3s all ease-in-out;
