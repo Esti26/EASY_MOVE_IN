@@ -8,11 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'homepage_login' %>
+
   </head>
 
-  <body>
+  <body class="main-container">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+
+    <div class="main-container">
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+
+    <%= render "shared/footer" %>
+
   </body>
 </html>
