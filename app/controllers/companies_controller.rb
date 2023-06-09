@@ -2,8 +2,6 @@ class CompaniesController < ApplicationController
   # before_action :set_move, only: %i[show destroy]
   before_action :set_bid, only: %i[edit update destroy]
 
-
-
   def show
     @move = Move.find(params[:id])
     @current_user = current_user

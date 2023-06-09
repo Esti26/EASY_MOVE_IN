@@ -8,7 +8,7 @@ class MovesController < ApplicationController
   end
 
   def new
-    @move = Move.new()
+    @move = Move.new
   end
 
   def create
