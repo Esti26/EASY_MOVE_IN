@@ -1,20 +1,22 @@
 #Bids-cards{
-  width: 850px;
+  width: 50vw;
   height: 130px;
   border-radius: 20px;
   background-color: #112B3C;
   color: #EFEFEF;
   padding-top: 15px;
   padding-left: 15px;
+  justify-content: center;
+
 
   .bid-div-col{
     display: grid;
     justify-content: center;
-    align-self: baseline;
-    margin-left: 50px;
-    margin-inline: 55px;
+    width: 180px;
   }
   .fa-solid{
     font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 35px;
   }
 }
