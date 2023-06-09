@@ -1,4 +1,4 @@
-<div class="container-full d-flex justify-content-center">
+<div class="container-full d-flex justify-content-center"  data-controller="loginform">
 </div>
 <div id="homepage" class="container-full">
   <%= image_tag "https://images.unsplash.com/photo-1614359835514-92f8ba196357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" %>
@@ -31,8 +31,10 @@
       <h2>..And what will you be moving?</h2>
       <div class="input-container">
         <%= form.text_area :shipment_info, required: true, placeholder: '' %>
+       <%= link_to new_user_session_path, class: "shithead small_button" do %>
+       Submit
+       <% end %>
         <button id="prevBtn1" class="small_button" type="button">Previous</button>
-        <button id="submitBtn" class="small_button" type="submit">Submit</button>
       </div>
     </div>
   <% end %>
@@ -49,11 +51,11 @@
     </div>
     <div class="form_icon">
       <i class="fa-solid fa-upload" style="color: #f66b0e;"></i>
-        <h5>Post your move</h5>
+      <h5>Post your move</h5>
     </div>
     <div class="form_icon">
       <i class="fa-solid fa-hand-pointer" style="color: #f66b0e;"></i>
-        <h5>Select your favourite bid</h5>
+      <h5>Select your favourite bid</h5>
     </div>
   </div>
 </div>
