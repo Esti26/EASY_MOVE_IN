@@ -34,7 +34,15 @@
         <% @moves.each do |move| %>
         <div class="small-card mb-5" id="card-div">
           <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
-          <h5>he</h5>
+          <div>
+            <%if move.status == "open"%>
+              <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
+            <%elsif move.status = "pending"%>
+              <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrows-rotate fa-spin"> </i> <%= move.status %> </h6>
+             <%elsif move.status = "confirmed"%>
+              <h6 style="margin-left: 200px"> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
+              <%end%>
+          </div>
           <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
             <%= move.date.strftime("%d %b %Y") %></h5>
             <br>
@@ -48,8 +56,9 @@
           <% end %>
           <br>
           <div class="link-container justify-content-between">
-            <%= link_to "Details", move_path(move.id), class: "small_button" %>
+           <%= link_to "Details", move_path(move.id), class: "small_button" %>
             <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+
           </div>
         </div>
         <% end %>
