@@ -34,6 +34,7 @@
         <% @moves.each do |move| %>
         <div class="small-card mb-5" id="card-div">
           <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
+          <h5>he</h5>
           <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
             <%= move.date.strftime("%d %b %Y") %></h5>
             <br>
@@ -46,7 +47,7 @@
           <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
           <% end %>
           <br>
-          <div class="d-flex justify-content-between mx-1">
+          <div class="link-container justify-content-between">
             <%= link_to "Details", move_path(move.id), class: "small_button" %>
             <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
           </div>
