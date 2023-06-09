@@ -9,14 +9,35 @@
   justify-content: center;
 
 
-  .bid-div-col{
+  .bid-div-col {
     display: grid;
     justify-content: center;
     width: 180px;
   }
-  .fa-solid{
+  .icon-1 {
     font-size: 30px;
     margin-bottom: 30px;
     margin-left: 35px;
+  }
+  .icon-2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+  .icon-3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 28px;
+    position: sticky;
+  }
+  .icon-4 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+  }
+  .details-button{
+    margin-top: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
