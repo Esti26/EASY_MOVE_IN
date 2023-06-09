@@ -22,8 +22,7 @@ class MovesController < ApplicationController
   end
 
   def edit
-    @move = Move.new
-  end
+git  end
 
   def update
     if @move.update(move_params)
