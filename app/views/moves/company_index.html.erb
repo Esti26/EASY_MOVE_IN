@@ -38,7 +38,7 @@
             <%if move.status == "open"%>
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
             <%elsif move.status = "pending"%>
-              <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= move.status %> </h6>
+              <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrows-rotate fa-spin"> </i> <%= move.status %> </h6>
              <%elsif move.status = "confirmed"%>
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
               <%end%>
