@@ -6,12 +6,6 @@
     <h2 class="welcome">Welcome to the best move of your life</h2>
   </div>
 </div>
-<div     class="container-full">
-  <div class="d-flex justify-content-center">
-    <h1>How it works</h1>
-    <hr class="solid">
-  </div>
-</div>
 <div id="homeform" class="container">
   <%= form_with(id: 'form') do |form| %>
     <div id="page1" class="page">
@@ -31,15 +25,35 @@
         <%= form.text_field :end_point, required: true, placeholder: '    To where?' %>
         <label for="endPointInput"></label>
       </div>
-      <button id="nextBtn1" type="button">Next</button>
+      <button id="nextBtn1" class="small_button" type="button">Next</button>
     </div>
     <div id="page2" class="page">
-      <h2>Tell us about your move</h2>
+      <h2>..And what will you be moving?</h2>
       <div class="input-container">
         <%= form.text_area :shipment_info, required: true, placeholder: '' %>
-        <button id="prevBtn1" type="button">Previous</button>
-        <button id="submitBtn" type="submit">Submit</button>
+        <button id="prevBtn1" class="small_button" type="button">Previous</button>
+        <button id="submitBtn" class="small_button" type="submit">Submit</button>
       </div>
     </div>
   <% end %>
+</div>
+<div class="container-full">
+  <div class=" container d-flex justify-content-center how">
+    <h1>How it works</h1>
+    <hr class="solid">
+  </div>
+  <div class=" d-flex justify-content-between align-items-center iconparent">
+    <div class="form_icon">
+      <i class="fa-brands fa-wpforms" style="color: #f66b0e;"></i>
+      <h5>Fill out your details</h5>
+    </div>
+    <div class="form_icon">
+      <i class="fa-solid fa-upload" style="color: #f66b0e;"></i>
+        <h5>Post your move</h5>
+    </div>
+    <div class="form_icon">
+      <i class="fa-solid fa-hand-pointer" style="color: #f66b0e;"></i>
+        <h5>Select your favourite bid</h5>
+    </div>
+  </div>
 </div>

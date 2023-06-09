@@ -1,26 +1,59 @@
-#company-index{
+
+  .low-container {
+    display: flex;
+  }
+
   .left-container {
-    width: 80%;
+
+    height: 100%;
+    color: black;
+    margin-right: 30px;
+
+    flex-grow: 1;
   }
+
   .right-container {
-    width: 20%;
+    height: 100vh;
+    position: sticky;
+  top: 0;
+  width: 50%;
   }
-  i{
+
+  .image {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+  }
+
+  i {
     color: rgb(246, 107, 14);
-    ;
   }
-  .image{
-      position: sticky;
-      top: 0;
-  }
+
   .form-container {
-    width:100%;
+    width: 80%;
+    margin-inline: auto;
+
     .filter-form {
       width: 20%;
     }
-    .search-form {
-      width: 80%;
-    }
 
+    .search-form {
+      width: 60%;
+    }
   }
+
+  h1 {
+    text-align: center;
+  }
+
+  .centered-container {
+    text-align: center;
+  }
+
+.move-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 }

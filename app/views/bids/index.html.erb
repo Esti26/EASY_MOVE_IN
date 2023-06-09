@@ -31,8 +31,10 @@
             <i class="fa-solid fa-calendar" style="color: #f66b0e;"></i>
             <%= bid.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
           </div>
+
           <div calss = "d-flex align-items-center">
           <%= button_to "see details", move_bid_path(bid.move_id, bid.id),method: :get, :class => "small_button"%>
+
           </div>
         </div>
       <%end %>
