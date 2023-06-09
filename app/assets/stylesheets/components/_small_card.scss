@@ -1,12 +1,11 @@
 .small-card{
   padding: 18px;
   background-color: #205375;
-  margin: 3px;
   font-family: 'Architects Daughter', cursive ;
   font-size: 20px;
   box-shadow: 5px 5px 5px grey;
   transition: .5s all ease-in-out;
-  width: 28rem;
+  width: 24rem;
   &:hover {
     box-shadow: 5px 5px 15px grey;
     transform: scale(1.05);
