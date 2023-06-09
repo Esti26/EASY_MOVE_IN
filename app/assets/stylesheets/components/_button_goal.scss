@@ -1,0 +1,45 @@
+button.small_button_goal {
+  background-color: rgb(14, 246, 80);
+  font-family: 'Hind', sans-serif;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  transition: .3s all ease-in-out;
+  &:hover {
+    color: rgb(14, 246, 80);
+    background-color: white;
+    font-weight: 900;
+
+  }
+}
+
+
+a.small_button_goal {
+  background-color: rgb(14, 246, 80);
+  font-family: 'Hind', sans-serif;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  padding: 8px 32px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  transition: .3s all ease-in-out;
+  &:hover {
+    color: rgb(14, 246, 80);
+    background-color: white;
+    font-weight: 900;
+
+  }
+}

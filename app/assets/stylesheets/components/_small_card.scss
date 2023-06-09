@@ -1,5 +1,5 @@
 .small-card{
-  padding: 18px;
+  padding: 20px;
   color: white;
   background-color: $dk-blue;
   border-radius: 10px;
@@ -7,7 +7,7 @@
   font-size: 20px;
   box-shadow: 5px 5px 5px grey;
   transition: .2s all ease-in-out;
-  width: 24rem;
+  width: 22rem;
   &:hover {
     box-shadow: 5px 5px 15px grey;
     transform: scale(1.05);
