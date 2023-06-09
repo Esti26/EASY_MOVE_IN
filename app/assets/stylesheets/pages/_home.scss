@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   z-index: 2;
-  margin-top: -15px;
+  // margin-top: -15px;
 
   img {
     height: 100vh;
     width: 100vw;
     object-fit: cover;
-    margin-top: -15px;
+    // margin-top: -15px;
   }
 }
 
@@ -23,7 +23,7 @@
   background-image: linear-gradient(to right, rgb(232, 148, 32) 0%, #f3c190 25%, #e2cf97 50%, #e2cf97 50%, rgb(163, 163, 222) 75%, #5a5ad5 100%);
   opacity: 0.5;
   z-index: 1;
-  margin-top: -15px;
+  // margin-top: -15px;
 
 }
 
