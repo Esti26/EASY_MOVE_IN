@@ -1,16 +1,59 @@
-<div class="container-full strip d-flex justify-content-center">
+<div class="container-full d-flex justify-content-center">
 </div>
 <div id="homepage" class="container-full">
   <%= image_tag "https://images.unsplash.com/photo-1614359835514-92f8ba196357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" %>
   <div class="text">
-    <h2 class="welcome">  Welcome to the best move of your life
-    </h2>
+    <h2 class="welcome">Welcome to the best move of your life</h2>
   </div>
-  
 </div>
-<div class="container-full" >
-  <div class="d-flex justify-content-center">
+<div id="homeform" class="container">
+  <%= form_with(id: 'form') do |form| %>
+    <div id="page1" class="page">
+      <h2>Tell us..</h2>
+      <div class="input-container">
+        <i class="fa-solid fa-calendar" style="color: #f66b0e;"></i>
+        <%= form.text_field :date, required: true, class: 'date-input', placeholder: '    When?' %>
+        <label for="dateInput"></label>
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-location-dot" style="color: #f66b0e;"></i>
+        <%= form.text_field :start_point, required: true, placeholder: '    From where?' %>
+        <label for="startPointInput"></label>
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-location-pin" style="color: #f66b04;"></i>
+        <%= form.text_field :end_point, required: true, placeholder: '    To where?' %>
+        <label for="endPointInput"></label>
+      </div>
+      <button id="nextBtn1" class="small_button" type="button">Next</button>
+    </div>
+    <div id="page2" class="page">
+      <h2>..And what will you be moving?</h2>
+      <div class="input-container">
+        <%= form.text_area :shipment_info, required: true, placeholder: '' %>
+        <button id="prevBtn1" class="small_button" type="button">Previous</button>
+        <button id="submitBtn" class="small_button" type="submit">Submit</button>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="container-full">
+  <div class=" container d-flex justify-content-center how">
     <h1>How it works</h1>
     <hr class="solid">
+  </div>
+  <div class=" d-flex justify-content-between align-items-center iconparent">
+    <div class="form_icon">
+      <i class="fa-brands fa-wpforms" style="color: #f66b0e;"></i>
+      <h5>Fill out your details</h5>
+    </div>
+    <div class="form_icon">
+      <i class="fa-solid fa-upload" style="color: #f66b0e;"></i>
+        <h5>Post your move</h5>
+    </div>
+    <div class="form_icon">
+      <i class="fa-solid fa-hand-pointer" style="color: #f66b0e;"></i>
+        <h5>Select your favourite bid</h5>
+    </div>
   </div>
 </div>
