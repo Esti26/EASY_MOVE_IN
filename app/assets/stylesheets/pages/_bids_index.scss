@@ -13,7 +13,7 @@
   .bid-div-col {
     display: grid;
     justify-content: center;
-    width: 180px;
+    width: 150px;
   }
   .icon-1 {
     font-size: 30px;
@@ -42,12 +42,16 @@
     margin-left: 17px;
   }
   .details-button{
-  margin-top: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
+    margin-top: 10px;
+    margin-left: 130px;
+    margin-right: 15px;
   }
   .hire-button{
-  margin-left: 15px;
-  margin-right: 15px;
+    margin-top: -15px;
+    margin-left: 130px;
+    margin-right: 15px;
+  }
+  .expiring-time{
+    color: rgb(14, 246, 80);
   }
 }
