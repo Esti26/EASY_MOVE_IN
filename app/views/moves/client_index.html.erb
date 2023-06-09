@@ -2,7 +2,7 @@
 <h1>My published moves</h1>
 <div class="container-full d-flex justify-content-center">
   <%# <%= link_to "Add a new move", new_move_path, class: "order-1 btn btn-success text-light allign-content-center" %>
-  <div class="container-full d-flex justify-content-center movescard">
+  <div class="container-full flex-wrap d-flex justify-content-center movescard">
     <% @moves.each do |move|%>
       <div class="card col-8 mb-5">
         <div class="card-body">
