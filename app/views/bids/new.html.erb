@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-between mt-3 mb-3">
-  <div class="small-card align-content-center">
+  <div class="small-card align-content-center" style="height: 80vh">
       <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
               <%= @move.date.strftime("%d %b %Y") %></h5>
               <br>
@@ -20,10 +20,10 @@
       <%= simple_form_for([@move, @bid]) do |f| %>
         <div class="card-body">
           <h5 class="card-text"><%= f.input :price %></h5>
-          <button id="submitBtn" class="small_button tton" type="submit">Place bid</button>      </div>
+          <button id="submitBtn" class="small_button" type="submit" style="background-color: limegreen;">Place bid</button>      </div>
         <% end %>
     </div>
-  <div class="right-container">
-      <%= image_tag "map.png", class: "image" %>
+  <div class="container ">
+      <%= image_tag "map.png", class: "image height: 50vh width:30vh"%>
     </div>
   </div>
