@@ -42,12 +42,13 @@
           <br><h6>from</h6>
           <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
             <%= move.start_point %></h5>
-          <br><h6>to</h6>
+          <br><h6 class="ml-1" >to</h6>
           <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
           <% end %>
+          <br>
           <div class="d-flex justify-content-between mx-1">
             <%= link_to "Details", move_path(move.id), class: "small_button" %>
-            <%= link_to "Add a bid", new_move_bid_path(move.id), class: "small_button" %>
+            <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button" %>
           </div>
         </div>
         <% end %>

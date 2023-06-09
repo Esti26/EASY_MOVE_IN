@@ -1,15 +1,29 @@
-
-</div class="container m-3">
-      <h5 class="card-title"><%= @move.date %></h5>
-      <p class="card-text"><%= @move.start_point %></p>
-      <p class="card-text"><%= @move.end_point %></p>
-      <p class="card-text"><%= @move.shipment_info %></p>
-      <p class="card-text"><%= @move.status %></p>
-      <p class="card-text"><%= @move.expiration %></p>
+<div class="container d-flex justify-content-between mt-3 mb-3">
+  <div class="small-card align-content-center">
+      <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+              <%= @move.date.strftime("%d %b %Y") %></h5>
+              <br>
+      <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+              <%= @move.date.strftime("%l:%m %p") %></h5>
+            <br><h6>from</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+              <%= @move.start_point %></h5>
+            <br><h6 class="ml-1" >to</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= @move.end_point %></h5>
+      <br>
+      <h5 class="card-title"> <i class="fa-solid fa-arrows-rotate fa-spin"></i> <%= @move.status %></h5>
+      <br>
+      <h5 class="card-title"> <i class="fa-solid fa-circle-info"></i> <%= @move.shipment_info %></h5>
+      <br>
+      <%# <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <% if @move.expiration%>
+      <%# </h5> %>
       <%= simple_form_for([@move, @bid]) do |f| %>
-            <div class="card-body">
-            <h6 class="card-text"><%= f.input :price %></h6>
-            <%= f.submit "Place bid", :class => "btn btn-success " %>
-    <% end %>
-      </div>
+        <div class="card-body">
+          <h5 class="card-text"><%= f.input :price %></h5>
+          <button id="submitBtn" class="small_button tton" type="submit">Place bid</button>      </div>
+        <% end %>
+    </div>
+  <div class="right-container">
+      <%= image_tag "map.png", class: "image" %>
+    </div>
   </div>
