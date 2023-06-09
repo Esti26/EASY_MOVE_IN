@@ -15,7 +15,7 @@
 
 </div>
 <div class="container" width=50%>
-  <div class="container col-10 mt-2 border flex-wrap rounded d-flex justify-content-center ">
+  <div class="container col-10 mt-2 flex-wrap rounded d-flex justify-content-center ">
     <div class=" w-75 d-flex justify-content-center align-items-center flex-column mb-3" style="margin-top: 15px; ">
       <% @bids.each do |bid| %>
         <div id="Bids-cards" class="card-body mb-5 border d-flex">
@@ -35,12 +35,16 @@
           </div>
           <div class="bid-div-col">
             <i class="icon-4 fa-solid fa-calendar" style="color: #f66b0e;"></i>
-            <%= bid.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
+            <%= bid.created_at.strftime(" %d %b %Y ") %>
+          </div>
+          <div class="bid-div-col">
+            <i class="icon-5 fa-regular fa-clock" style="color: #f66b0e;"></i>
+            <%= bid.created_at.strftime("%l:%M %p") %>
           </div>
 
           <div calss = "d-flex align-items-end">
+          <%= button_to "hire", move_bid_path(bid.move_id, bid.id), method: :get, :class => "hire-button small_button-goal"%>
           <%= button_to "see details", move_bid_path(bid.move_id, bid.id),method: :get, :class => "details-button small_button"%>
-
           </div>
         </div>
       <%end %>
