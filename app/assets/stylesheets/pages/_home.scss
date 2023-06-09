@@ -124,12 +124,14 @@ h1 {
 .input-container textarea {
   width: 100%;
   padding: 10px;
+  border-radius: 7px;
 }
 
 .input-container i {
   position: absolute;
   top: 12px;
   left: 10px;
+
 }
 
 #nextBtn1,
@@ -144,7 +146,7 @@ h2 {
 
 
 .form_icon {
-  font-size: 70px;
+  font-size: 50px;
   margin: 0 auto;
   width: 305px;
   text-align: center;
@@ -152,5 +154,13 @@ h2 {
 
 .icontext {
   width: 310px;
+}
 
+.iconparent {
+
+margin-bottom: 100px;
+}
+
+.how {
+  margin-bottom: 80px;
 }
