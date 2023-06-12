@@ -4,13 +4,12 @@
 <h1 class="moves-text">My published moves</h1>
 <div class="container-full d-flex justify-content-center">
   <div class="container-full d-flex flex-wrap justify-content-center movescard">
-
     <% @moves.each do |move|%>
       <div class="card col-8 mb-5">
-        <div class="card-body">
-          <h5 class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> <%= Time.at(move.date) %> UTC</h5>
-          <h5 class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i><%= move.start_point %></h5>
-          <h5 class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i><%= move.end_point %></h5>
+        <div id="indexcard" class="card-body">
+          <h5 id="indexcard" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> <%= Time.at(move.date) %> UTC</h5>
+          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i><%= move.start_point %></h5>
+          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i><%= move.end_point %></h5>
           <div class="d-flex justify-content-between">
             <%= link_to "See details", move_path(move.id), class: "small_button" %>
             <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
