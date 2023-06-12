@@ -55,10 +55,21 @@
           <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
           <% end %>
           <br>
-          <div class="link-container justify-content-between">
-          <%= link_to "Details", move_path(move.id), class: "small_button" %>
-          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
-
+          <div class="link-container justify-content-between d-flex">
+            <div><%= link_to "Details", move_path(move.id), class: "small_button" %>
+            </div>
+            <% company = Company.find_by(user_id: current_user)%>
+            <% if bid = move.bids.find_by(company_id: company) %>
+            <div>
+            <h6>your bid</h6>
+              <div class = "d-flex">
+                <h2><%= bid.price %> €</h2>
+                <%= link_to "",edit_move_bid_path(move.id, bid.id), class: "btn text-light fa-solid fa-pen" %>
+              </div>
+            </div>
+            <% else %>
+              <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+            <%end%>
           </div>
         </div>
         <% end %>
@@ -78,6 +89,12 @@
           center: [-74.5, 40], // starting position [lng, lat]
           zoom: 9, // starting zoom
           });
+          // const markers = <%= @markers.to_json %>; // Assuming @markers contains the coordinates of your instances
+
+          // markers.forEach(marker => {
+          //   new mapboxgl.Marker()
+          //     .setLngLat(marker.coordinates) // Assuming the coordinates are in the format [longitude, latitude]
+          //     .addTo(map);
         </script>
       </div>
   </div>
