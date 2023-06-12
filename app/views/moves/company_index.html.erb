@@ -39,7 +39,7 @@
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
             <%elsif move.status = "pending"%>
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrows-rotate fa-spin"> </i> <%= move.status %> </h6>
-             <%elsif move.status = "confirmed"%>
+            <%elsif move.status = "confirmed"%>
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
               <%end%>
           </div>
@@ -56,8 +56,8 @@
           <% end %>
           <br>
           <div class="link-container justify-content-between">
-           <%= link_to "Details", move_path(move.id), class: "small_button" %>
-            <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+          <%= link_to "Details", move_path(move.id), class: "small_button" %>
+          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
 
           </div>
         </div>
@@ -65,9 +65,20 @@
       </div>
     </div>
 
-   <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="right-container"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div id='map' style='width: 540px; height: 750px;'></div>
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0aTI2IiwiYSI6ImNsaG9vMDF2cjFtMGozZHMxdmE0MnJrbzIifQ.SUs4-1vCL28RYJgPwDUFPA';
+          const map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/mapbox/streets-v12', // style URL
+          center: [-74.5, 40], // starting position [lng, lat]
+          zoom: 9, // starting zoom
+          });
+        </script>
+      </div>
   </div>
-  </div>
+</div>
