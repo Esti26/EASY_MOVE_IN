@@ -1,15 +1,15 @@
 <div class="card col-8 ">
-    <h5 class="card-header d-flex justify-content-center">move</h5>
-    <div class="card-body">
-      <h5 class="card-title">Moving at : <%= Time.at(@move.date) %> UTC</h5>
-      <h5 class="card-text"><%= @move.start_point %></h5>
-      <h5 class="card-text"><%= @move.end_point %></h5>
-      <h5 class="card-text"><%= @move.status %></h5>
-      <div class="d-flex justify-content-between">
-        <%= link_to "Back", client_path, class: "order-1 btn btn-primary text-light" %>
-        <%= link_to "Edit", edit_move_path(@move.id), class: "order-1 btn btn-success text-light" %>
-        <%= link_to "See received bids", move_bids_path(@move.id), class: "order-1 btn btn-info text-light" %>
-        <%= link_to "", move_path(@move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </div>
-      </div>
+  <h5 class="card-header d-flex justify-content-center">move</h5>
+  <div class="card-body">
+    <h5 class="card-title">Moving at : <%= Time.at(@move.date) %> UTC</h5>
+    <h5 class="card-text"><%= @move.start_point %></h5>
+    <h5 class="card-text"><%= @move.end_point %></h5>
+    <h5 class="card-text"><%= @move.status %></h5>
+    <div class="d-flex justify-content-between">
+      <%= link_to "Back", client_path, class: "order-1 btn btn-primary text-light" %>
+      <%= link_to "Edit", edit_move_path(@move.id), class: "order-1 btn btn-success text-light" %>
+      <%= link_to "See received bids", move_bids_path(@move.id), class: "order-1 btn btn-info text-light" %>
+      <%= link_to "", move_path(@move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </div>
+  </div>
+</div>
