@@ -42,6 +42,17 @@ class MovesController < ApplicationController
   end
 
   def company_index
+    if params[:query].present?
+      sql_query = <<~SQL
+        moves.shipment_info ILIKE :query
+        OR moves.start_point ILIKE :query
+        OR directors.end_point ILIKE :query
+      SQL
+      @moves = Move.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @moves = Move.all
+    end
+
     @moves = Move.all
     @markers = @moves.geocoded.map do |move|
       {

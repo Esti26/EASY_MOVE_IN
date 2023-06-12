@@ -87,3 +87,4 @@ end
 gem 'geocoder'
 
 gem 'dotenv'
+gem "pg_search"
