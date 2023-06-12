@@ -36,9 +36,17 @@ class BidsController < ApplicationController
   end
 
   def edit
+    @bid = Bid.find(params[:id])
+    @move = Move.find(params[:move_id])
   end
 
   def update
+    @bid = Bid.find(params[:id])
+    if @bid.update(bid_params)
+      redirect_to company_path, notice: 'Bid was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
