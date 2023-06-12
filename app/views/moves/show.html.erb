@@ -1,23 +1,27 @@
-
-
-
-
 <div class="container-full d-flex justify-content-end addmove">
   <%= link_to "Add a new move", new_move_path, class: "small_button" %>
 </div>
 <h1 class="moves-text">My move</h1>
 <div class="container-full d-flex justify-content-center">
-  <div class="container-full d-flex flex-wrap justify-content-center showcard">
-    <div class="card col-8 mb-5">
+  <div class="container-full d-flex flex-wrap justify-content-center showcard shadow p-3 mb-5 bg-white rounded">
+    <div class="card col-8">
       <div id="showcards" class="card-body d-flex flex-column justify-content-between">
-        <h5 id="showcards" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> Moving at: <%= Time.at(@move.date) %> UTC</h5>
-        <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i> From: <%= @move.start_point %></h5>
-        <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i>To: <%= @move.end_point %></h5>
-        <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-exclamation-circle" style="color: #f66b0e;"></i>Status: <%= @move.status %></h5>
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5 id="showcards" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> Moving at: <%= Time.at(@move.date) %> UTC</h5>
+            <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i> From: <%= @move.start_point %></h5>
+            <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> To: <%= @move.end_point %></h5>
+            <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-exclamation-circle" style="color: #f66b0e;"></i> Status: <%= @move.status %></h5>
+          </div>
+          <div>
+            <h5 id="shipmenttext" class="card-text"><i class="iconmove fa-solid fa-circle-info"></i> Shipment Info:</h5>
+            <p id="shipmenttext" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo sapien ut nunc rhoncus, et cursus dui lacinia.</p>
+          </div>
+        </div>
         <div class="d-flex justify-content-between">
           <%= link_to "See received bids", move_bids_path(@move.id), class: "small_button" %>
           <%= link_to "Edit", edit_move_path(@move.id), class: "small_button" %>
-          <%= link_to "", move_path(@move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%= link_to "", move_path(@move.id), class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
       </div>
     </div>
