@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mapbox-gl-directions": "^3.0.3"
+    "mapbox-gl-directions": "^3.0.3",
+    "stimulus": "^3.2.1"
   }
 }

@@ -46,14 +46,20 @@ class MovesController < ApplicationController
       sql_query = <<~SQL
         moves.shipment_info ILIKE :query
         OR moves.start_point ILIKE :query
-        OR directors.end_point ILIKE :query
+        OR moves.end_point ILIKE :query
       SQL
       @moves = Move.where(sql_query, query: "%#{params[:query]}%")
     else
       @moves = Move.all
     end
 
-    @moves = Move.all
+    case params[:filter]
+    when "created"
+      @moves = @moves.order(created_at: :desc)
+    when "earliest"
+      @moves = @moves.order(date: :asc)
+    end
+
     @markers = @moves.geocoded.map do |move|
       {
         lat: move.latitude,
@@ -63,7 +69,7 @@ class MovesController < ApplicationController
       }
     end
   end
-
+  
   private
 
   def set_move
