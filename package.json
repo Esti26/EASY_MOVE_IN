@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mapbox-gl-directions": "^3.0.3"
+  }
+}

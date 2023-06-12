@@ -10,9 +10,8 @@
     <%= javascript_include_tag 'homepage_login' %>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
-
-
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
   </head>
 
   <body class="main-container">
@@ -23,8 +22,24 @@
     </div>
 
     <%= render "shared/footer" %>
+    <%# <div id="map"></div> %>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0aTI2IiwiYSI6ImNsaG9vMDF2cjFtMGozZHMxdmE0MnJrbzIifQ.SUs4-1vCL28RYJgPwDUFPA';
 
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-74.5, 40],
+        zoom: 9
+      });
 
+      const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving-traffic',
+      });
+
+      map.addControl(directions, 'top-left');
+    </script>
   </body>
-
 </html>
