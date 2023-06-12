@@ -12,8 +12,7 @@
 
   .right-container {
     height: 100vh;
-    position: sticky;
-    top: 35px;
+    margin-bottom: 45px;
     width: 50%;
   }
 
@@ -59,4 +58,8 @@
 
 #map {
   border-radius: 2%;
+  width: 540px;
+  height: 735px;
+  position: sticky;
+  top: 35px;
 }
