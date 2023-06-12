@@ -1,6 +1,10 @@
 <h1>Detail of the bid</h1>
+<div class ="mx-5">
+  <%= link_to "back to all bids", move_bids_path(@move.id), class: "small_button_back  mt-5" %>
+</div>
+
 <div class="small-card m-5" id="card-div">
-          <%= link_to move_path(@move.id), data:{}, style:"text-decoration:none;", title: "show this @move" do %>
+          <%= link_to move_path(@move.id), data:{}, style:"text-decoration:none;", title: "show details of this move" do %>
           <div>
             <%if @move.status == "open"%>
               <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrow-rotate-right"></i> <%= @move.status %></h6>
@@ -25,4 +29,3 @@
           <% end %>
           <br>
           </div>
-r

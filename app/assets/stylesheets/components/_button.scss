@@ -35,6 +35,27 @@ a.small_button {
     color: rgb(246, 107, 14);
     background-color: white;
     font-weight: 900;
+  }
+}
 
+a.small_button_back {
+  background-color: white;
+  font-family: 'Hind', sans-serif;
+  color: rgb(246, 107, 14);
+  border: 1px solid rgb(246, 107, 14);
+  border-radius: 7px;
+  text-align: center;
+  padding: 10px 28px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: .3s all ease-in-out;
+  &:hover {
+    color: white;
+    background-color: rgb(246, 107, 14);
+    font-weight: 900;
+  }
+  &:active {
+    opacity: 0.8;
   }
 }

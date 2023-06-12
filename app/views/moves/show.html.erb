@@ -10,7 +10,7 @@
   <div class="container-full d-flex flex-wrap justify-content-center showcard">
     <div class="card col-8 mb-5">
       <div id="showcards" class="card-body d-flex flex-column justify-content-between">
-        <h5 id="showcards" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> Moving at: <%= Time.at(@move.date) %> UTC</h5>
+        <h5 id="showcards" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> Moving at: <%=@move.date.strftime("%d %b %Y %l:%m %p") %></h5>
         <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i> From: <%= @move.start_point %></h5>
         <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i>To: <%= @move.end_point %></h5>
         <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-exclamation-circle" style="color: #f66b0e;"></i>Status: <%= @move.status %></h5>
