@@ -4,19 +4,17 @@
   }
 
   .left-container {
-
     height: 100%;
     color: black;
     margin-right: 30px;
-
     flex-grow: 1;
   }
 
   .right-container {
     height: 100vh;
     position: sticky;
-  top: 0;
-  width: 50%;
+    top: 35px;
+    width: 50%;
   }
 
   .image {
@@ -59,6 +57,6 @@
   grid-gap: 30px;
 }
 
-.link-container {
-  justify-content: space-between;
+#map {
+  border-radius: 2%;
 }

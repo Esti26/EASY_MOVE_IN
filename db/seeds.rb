@@ -67,7 +67,7 @@ Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by
 Review.new(company_id: Company.find_by(name: "Realiable Move").id, client_id:User.find_by(first_name: "Madhava").id, average_rating: 5,efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
 # puts "Creating Bids"
-ra# Message.new(content:"Hey were are you? I am downstairs but cannot see you")
+# Message.new(content:"Hey were are you? I am downstairs but cannot see you")
 # Message.new(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late")
 # Message.new(content:"40 minutes have passed but still cannot see you. Are you coming?")
 # Message.new(content:"Yes! Still stuck in the traffic jam. Will be another 20 minutes late. Sorry for the inconveniences.")
