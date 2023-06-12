@@ -1,7 +1,5 @@
 #showcards {
-  border-radius: 20px;
   background-color: #f8f9fa;
-
 }
 
 .card-title, .card-text {
@@ -10,8 +8,9 @@
 
 .showcard {
   width: 150vw;
-  height: 300px;
-  margin-top: 50px;
+  max-height: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 #shipmenttext {
@@ -24,6 +23,6 @@
 
 
 .moves-text {
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: left;
+  margin-top: -50px;
 }
