@@ -2,21 +2,23 @@
   <%= link_to "Add a new move", new_move_path, class: "small_button" %>
 </div>
 <h1 class="moves-text">My published moves</h1>
-<div class="container-full d-flex justify-content-center">
-  <div class="container-full d-flex flex-wrap justify-content-center movescard">
+<div class="movescard" id="client-index">
     <% @moves.each do |move|%>
-      <div class="card col-8 mb-5">
+      <div class="card" data-controller="popup" data-popup-id-value="<%= move.id %>">
         <div id="indexcard" class="card-body">
           <h5 id="indexcard" class="card-title"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i> <%= Time.at(move.date) %> UTC</h5>
-          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-location-pin" style="color: #f66b0e;"></i><%= move.start_point %></h5>
-          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i><%= move.end_point %></h5>
-          <div class="d-flex justify-content-between">
-            <%= link_to "See details", move_path(move.id), class: "small_button" %>
+          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i><%= move.start_point %></h5>
+          <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i><%= move.end_point %></h5>
+          <div class="d-flex justify-content-between" >
+            <a href="#" data-action="click->popup#open" class="small_button">See details</a>
             <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
             <%= link_to "", move_path(move.id),  class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           </div>
         </div>
       </div>
+       <div id="<%= move.id%>" class="d-none">
+        <%= render "show", move: move %>
+      </div>
+
     <% end %>
-  </div>
 </div>
