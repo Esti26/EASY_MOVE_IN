@@ -43,6 +43,14 @@ class MovesController < ApplicationController
 
   def company_index
     @moves = Move.all
+    @markers = @moves.geocoded.map do |move|
+      {
+        lat: move.latitude,
+        lng: move.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {move: move})
+        marker_html: render_to_string(partial: "marker", locals: {move: move})
+      }
+    end
   end
 
   private
