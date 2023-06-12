@@ -53,10 +53,9 @@ class MovesController < ApplicationController
       @moves = Move.all
     end
 
-    case params[:filter]
-    when "created"
+    if params[:filter] == "created"
       @moves = @moves.order(created_at: :desc)
-    when "earliest"
+    elsif params[:filter] == "earliest"
       @moves = @moves.order(date: :asc)
     end
 
@@ -69,7 +68,7 @@ class MovesController < ApplicationController
       }
     end
   end
-  
+
   private
 
   def set_move
