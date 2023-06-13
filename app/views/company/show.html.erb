@@ -1,21 +1,35 @@
 
-    <div class="small-card mb-5" id="card-div">
-        <h5 class="card-title">
-          <%= @company.name%></h5>
+<h1>Hello <%= @company.name%></h1>
+<div class="d-flex justify-content-center">
+  <div class="small-card mb-5" id="card-div">
+    <h5 class="card-title">
+      <%= @company.name%></h5>
+  <br>
+  <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+    <%= @company.address%></h5>
+    <%= link_to "add a review", new_company_review_path(@company.id), class: "small_button_goal" %>
+  </div>
 
-        <br>
-        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
-          <%= @company.address%></h5>
+</div>
+  <% if @reviews %>
+  <div class="container">
+  <div>
 
-          <%= link_to "add a review", new_company_review_path(@company.id), class: "small_button_goal" %>
-
-      </div>
-      <% if @reviews %>
-      <div>
-       <% @reviews.each do |review| %>
-      <%= review.content %>
+    <h2>My reviews</h2>
+      <div class="notifications">
+      <% @reviews.each do |review| %>
+          <div class="notification">
+            <% user = User.find_by(id:review.client_id) %>
+            <%= image_tag "#{user.first_name}.jpg", class:"avatar-foto" %>
+            <div class="notification-content">
+              <h6>Posted on <%= review.created_at %></h6>
+              <p><%= review.content %></p>
+            </div>
+          </div>
       <%end%>
       </div>
       <%end%>
-
-    </div>
+  </div>
+</div>
+</div>
+  </div>
