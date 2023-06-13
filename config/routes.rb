@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :moves do
-    resources :bids
+    resources :bids, only: %i[edit update delete create index]
   end
+  resources :bids, only: [:show]
+
 
   get "/clients", to: "moves#client_index", as: "client"
   get "/companies", to: "moves#company_index", as: "company"

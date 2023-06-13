@@ -1,15 +1,16 @@
 class ReviewsController < ApplicationController
   def new
     @company = Company.find(params[:company_id])
-    @review = Review.new()
+    @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
     @company = Company.find(params[:company_id])
     @review.company_id = @company.id
+    @review.client_id = current_user.id
     if @review.save
-      redirect_to(company_index_path(params[:company_id]))
+      redirect_to company_path(params[:company_id])
     else
       render 'company/show', status: :unprocessable_entity
     end
@@ -35,6 +36,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:efficiency_rating, :punctuality_rating, :politeness_rating, :image, :content)
+    params.require(:review).permit(:efficiency_rating, :punctuality_rating, :politeness_rating, :content)
   end
 end

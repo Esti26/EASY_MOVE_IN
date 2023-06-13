@@ -1,0 +1,31 @@
+
+.avatar-foto {
+  object-fit: cover;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  margin: 1%;
+  padding: 3%;
+}
+.notification {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  background: white;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgb(235,235,235);
+  font-size: 20px;
+  box-shadow: 5px 5px 5px grey;
+  transition: .2s all ease-in-out;
+  width: 90%;
+}
+
+
+.notification-content date {
+  color: rgb(183, 183, 175);
+}
+
+.notification-content {
+  align-items: center;
+  padding: 2%;
+}
