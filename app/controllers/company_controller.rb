@@ -1,12 +1,14 @@
-class CompaniesController < ApplicationController
+class CompanyController < ApplicationController
   # before_action :set_move, only: %i[show destroy]
   before_action :set_bid, only: %i[edit update destroy]
 
   def show
-    @move = Move.find(params[:id])
-    @current_user = current_user
-    @moves = Move.all
-    @move = Move.where(move_id: params[:id]).first
+    @company = Company.find(params[:id])
+    @reviews = 
+    # @move = Move.find(params[:id])
+    # @current_user = current_user
+    # @moves = Move.all
+    # @move = Move.where(move_id: params[:id]).first
   end
 
   def new

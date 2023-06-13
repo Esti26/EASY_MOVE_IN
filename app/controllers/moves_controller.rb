@@ -68,7 +68,6 @@ class MovesController < ApplicationController
         marker_html: render_to_string(partial: "moves/marker", locals: { move: move }, formats: [:html])
       }
     end
-    raise if @moves.size != @markers.size
 
     respond_to do |format|
       format.html
