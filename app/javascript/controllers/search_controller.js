@@ -2,22 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
+    console.log("hello")
     const searchForm = this.element.querySelector(".search-form");
     const filterForm = this.element.querySelector(".filter-form");
 
     if (searchForm) {
-      searchForm.addEventListener("submit", (event) => {
+      searchForm.addEventListener("keyup", (event) => {
         event.preventDefault(); // Prevent the default form submission
-        const query = searchForm.querySelector("#query").value;
-        const filter = filterForm ? filterForm.querySelector("#search_query_filter").value : null;
+        const query = searchForm ? searchForm.value : null;
+        const filter = filterForm.querySelector("#search_query_filter").value;
+        console.log(filter, query);
         this.searchMoves(query, filter);
       });
     }
 
     if (filterForm) {
-      filterForm.addEventListener("submit", (event) => {
+      filterForm.addEventListener("change", (event) => {
         event.preventDefault(); // Prevent the default form submission
-        const query = searchForm ? searchForm.querySelector("#query").value : null;
+        const query = searchForm ? searchForm.value : null;
         const filter = filterForm.querySelector("#search_query_filter").value;
         this.searchMoves(query, filter);
       });
@@ -25,11 +27,12 @@ export default class extends Controller {
   }
 
   searchMoves(query, filter) {
-    const url = new URL("/company_index", window.location.origin);
+    const url = new URL("/companies", window.location.origin);
     url.searchParams.set("query", query);
     url.searchParams.set("filter", filter);
 
-    fetch(url)
+    console.log(url.toString());
+    fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then(html => {
         const moveGrid = document.querySelector(".move-grid");
@@ -38,5 +41,9 @@ export default class extends Controller {
       .catch(error => {
         console.error("Search request failed:", error);
       });
+  }
+
+  sort() {
+    console.log("hello")
   }
 }

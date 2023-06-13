@@ -63,9 +63,14 @@ class MovesController < ApplicationController
       {
         lat: move.latitude,
         lng: move.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { move: move }),
-        marker_html: render_to_string(partial: "marker", locals: { move: move })
+        info_window_html: render_to_string(partial: "moves/info_window", locals: { move: move }, formats: [:html]),
+        marker_html: render_to_string(partial: "moves/marker", locals: { move: move }, formats: [:html])
       }
+    end
+
+    respond_to do |format|
+      format.html
+      format.text {render partial: "moves/companies", locals: { moves: @moves, markers: @markers}, formats: [:html]}
     end
   end
 
