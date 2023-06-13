@@ -7,10 +7,13 @@
 <div class="movescard" id="client-index">
   <% @moves.each do |move| %>
     <div class="card popup" data-controller="popup" data-popup-id-value="<%= move.id %>">
-      <div class="bid-tag d-none">
-      
-      </div>
-      <div id="indexcard" class="card-body">
+      <% bid = move.bids.where(status: "pending").or(move.bids.where(status: "confirmed")).first %>
+      <% if bid %>
+        <div class="bid-tag">
+          <%= link_to "bid", bid_path(bid) %>
+        </div>
+      <% end %>
+        <div id="indexcard" class="card-body">
         <div class="delete_button_wrapper">
           <%= link_to  move_path(move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
             <i class="fa-solid fa-times"></i>
