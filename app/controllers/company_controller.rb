@@ -9,7 +9,6 @@ class CompanyController < ApplicationController
     # @current_user = current_user
     # @moves = Move.all
     # @move = Move.where(move_id: params[:id]).first
-    raise
   end
 
   def new
