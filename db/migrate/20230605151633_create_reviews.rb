@@ -8,7 +8,6 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :politeness_rating
       t.string :image
       t.text :content
-
       t.timestamps
     end
   end

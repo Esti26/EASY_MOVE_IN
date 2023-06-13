@@ -62,9 +62,9 @@ Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.ne
 
 
 puts "Creating Review"
-Review.new(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Esti").id,efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
-Review.new(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Madhava").id,efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!",image: "/app/assets/images/broken_box.png"  )
-Review.new(company_id: Company.find_by(name: "Realiable Move").id, client_id: User.find_by(first_name: "Madhava").id, average_rating: 5,efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
+Review.new(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Esti").id, efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
+Review.new(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!",image: "/app/assets/images/broken_box.png"  )
+Review.new(company_id: Company.find_by(name: "Realiable Move").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
 puts "Seeded successfully"
 

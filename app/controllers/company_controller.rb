@@ -4,11 +4,12 @@ class CompanyController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @reviews = 
+    @reviews = Review.find_by(company_id: params[:id])
     # @move = Move.find(params[:id])
     # @current_user = current_user
     # @moves = Move.all
     # @move = Move.where(move_id: params[:id]).first
+    raise
   end
 
   def new
@@ -42,8 +43,7 @@ class CompanyController < ApplicationController
     @bid.destroy
     redirect_to move_bids_path, notice: 'bid was successfully destroyed.'
   end
-
-  private
+end
 
   # def set_move
   #   @move = Move.find(params[:id])
@@ -53,7 +53,6 @@ class CompanyController < ApplicationController
 #     @my_bid = Bid.find(params[:id])
 #   end
 
-#   def bid_params
-#     params.require(:bid).permit(:price, :status, :expiration)
-#   end
-end
+  # def bid_params
+  #   params.require(:bid).permit(:price, :status, :expiration)
+  # end

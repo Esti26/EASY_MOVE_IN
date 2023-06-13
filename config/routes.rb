@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/companies/bids", to: "bids#index", as: "company_bids"
 
   resources :company do
-    resources :review, only: %i[new create edit delete update]
+    resources :reviews, only: %i[new create edit delete update]
   end
   get "/company/:id", to: "company#show", as: "company_show"
 end

@@ -1,13 +1,19 @@
 
     <div class="small-card mb-5" id="card-div">
         <h5 class="card-title">
-          <%= company.name%></h5>
+          <%= @company.name%></h5>
 
         <br>
         <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
-          <%= move.address%></h5>
-          
-          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
-        <% end %>
+          <%= @company.address%></h5>
+
+          <%= link_to "add a review", new_company_review_path(@company.id), class: "small_button_goal" %>
+
       </div>
+      <%# <% if @reviews%>
+      <%# <% @reviews.each do |review| %>
+      <%# <%= review.content%> 
+      <%# <%end%>
+      <%# <%end%>
+
     </div>

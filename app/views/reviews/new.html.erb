@@ -1,34 +1,19 @@
-<h1>My move</h1>
+<h1>Add a review for <%= @company.name %> </h1>
 <div class="container-full d-flex justify-content-center">
   <div class="container-full d-flex flex-wrap justify-content-center showcard">
     <div class="card col-8 mb-5">
-      <%= simple_form_for(@move) do |f| %>
+      <%= simple_form_for([@company, @review])do |f| %>
         <div class="card-body">
-          <h5 class="card-text"><%= f.input :efficiency_rating,
-                          as: :string,
-                          input_html: { data: { controller: "datepicker" } } %></h5>
-          <h6 class="card-text"><%= f.input :start_point,
-                          input_html: {data: {address_autocomplete_target: "start_point"}},
-                          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %></h6>
-          <h6 class="card-text"><%= f.input :end_point %></h6>
-          <h6 class="card-text"><%= f.input :shipment_info %></h6>
+          <h5 class="card-text"><%= f.input :efficiency_rating%></h5>
+          <h5 class="card-text"><%= f.input :punctuality_rating%></h5>
+          <h5 class="card-text"><%= f.input :politeness_rating%></h5>
+          <%# <h5 class="card-text"><%= f.image :image%></h5>
+          <h5 class="card-text"><%= f.input :content%></h5>
           <%= f.submit "Create", :class => "btn btn-success " %>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>
-
-
-create_table "reviews", force: :cascade do |t|
-    t.bigint "client_id", null: false
-    t.bigint "company_id", null: false
-    t.integer "efficiency_rating"
-    t.integer "punctuality_rating"
-    t.integer "politeness_rating"
-    t.string "image"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_reviews_on_client_id"
-    t.index ["company_id"], name: "index_reviews_on_company_id"
+>
