@@ -2,6 +2,7 @@
   border-radius: 20px;
   background-color: #f8f9fa;
   padding: 15px;
+  z-index: 99;
 }
 
 .iconmove {
@@ -38,10 +39,6 @@
   transition: transform 0.3s ease;
 }
 
-#client-index .card:hover {
-  transform: translateY(-5px);
-}
-
 
 
 .moves-text::after {
@@ -55,8 +52,70 @@
 }
 
 #client-index .card {
-  width: 550px ;
+  width: 550px;
   margin: 16px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete_button_wrapper {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+
+  .delete-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background-color: #e74c3c;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    &:hover {
+      i {
+        display: initial;
+
+      }
+    }
+  }
+
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+
+  .delete-button i {
+    display: none;
+    color: black;
+    top: 7px;
+    right: 9px;
+    position: absolute;
+    font-size: 16px;
+
+  }
+}
+
+.popup {
+  position: relative;
+  z-index: 9;
+.bid-tag {
+  position: absolute;
+  top:-20px;
+  left: 16px;
+  z-index:99;
+  width: 50px;
+  height: 90px;
+  background-color: $n-blue;
+  border-radius: 8px 0 0 0;
+  box-shadow: 5px 5px 5px grey;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    transform: translateY(-70%)
+  }
+}
+
 }
