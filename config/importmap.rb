@@ -40,3 +40,4 @@ pin "redux-thunk", to: "https://ga.jspm.io/npm:redux-thunk@2.4.2/es/index.js"
 pin "turf-extent", to: "https://ga.jspm.io/npm:turf-extent@1.0.4/index.js"
 pin "turf-meta", to: "https://ga.jspm.io/npm:turf-meta@1.0.2/index.js"
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
+importmap pin "@rails/actioncable" --from jsdelivr
