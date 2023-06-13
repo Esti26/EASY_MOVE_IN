@@ -1,0 +1,38 @@
+<div class="container-full d-flex justify-content-center">
+  <div class="container-full d-flex flex-wrap justify-content-center showcard">
+    <div class="card col-10">
+      <div id="showcards" class="card-body d-flex flex-column justify-content-between">
+        <div class="d-flex justify-content-between">
+          <div class="popup">
+            <span id="showcards" class="card-title">
+              <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+              Moving at: <%= Time.at(move.date) %>
+            </span>
+            <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= move.start_point %></span>
+            <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= move.end_point %></span>
+            <span id="showcards" class="card-text">
+              <div class="move-status">
+                <% if move.status == "open" %>
+                  <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %>
+                <% elsif move.status == "pending" %>
+                  <i class="fa-solid fa-arrows-rotate fa-spin"></i> <%= move.status %>
+                <% elsif move.status == "confirmed" %>
+                  <i class="fa-solid fa-square-check" style="color: #73c431;"></i> <%= move.status %>
+                <% end %>
+              </div>
+            </span>
+          </div>
+          <div>
+            <h5 id="shipmenttext" class="card-text"><i class="iconmove fa-solid fa-circle-info"></i> Shipment Info:</h5>
+            <p id="shipmenttext" class="card-text"><%= move.shipment_info %></p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <%= link_to "See received bids", move_bids_path(move.id), class: "small_button" %>
+          <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
+          <%= link_to "", move_path(move.id), class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

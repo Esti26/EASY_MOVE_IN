@@ -3,6 +3,7 @@ button.small_button {
   font-family: 'Hind', sans-serif;
   color: white;
   border-radius: 7px;
+  margin-top: 10px;
   border: none;
   padding: 10px 28px;
   text-align: center;
@@ -14,7 +15,6 @@ button.small_button {
     color: rgb(246, 107, 14);
     background-color: white;
     font-weight: 900;
-
   }
 }
 
@@ -24,6 +24,7 @@ a.small_button {
   font-family: 'Hind', sans-serif;
   color: white;
   border-radius: 7px;
+  margin-top: 10px;
   border: none;
   text-align: center;
   padding: 10px 28px;
@@ -35,6 +36,5 @@ a.small_button {
     color: rgb(246, 107, 14);
     background-color: white;
     font-weight: 900;
-
   }
 }

@@ -1,13 +1,21 @@
-<%= simple_form_for [@move] do |f| %>
-  <%= f.input :date %>
-  <%# as: :string, %>
-  <%# # input_html: { data: { controller: "datepicker" , action:"change->move-calculations#daysRented", "rental-calculations-target": "start"} } %>
-  <%= f.input :start_point,
-  input_html: {data: {address_autocomplete_target: "start_point"}},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-  <%= f.input :end_point %>
-  <%= f.input :shipment_info %>
-  <%# <p data-rental-calculations-target="days" > </p> %>
-  <%# <p data-rental-calculations-target="price" > </p> %>
-  <%= f.submit "Submit", :class => "btn btn-success btn-mini" %>
-<% end %>
+<h1>My move</h1>
+<div class="container-full d-flex justify-content-center">
+  <div class="container-full d-flex flex-wrap justify-content-center showcard">
+    <div class="card col-8 mb-5">
+      <%= simple_form_for(@move) do |f| %>
+        <div class="card-body">
+          <h5 class="card-text"><%= f.input :date,
+                          as: :string,
+                          input_html: { data: { controller: "datepicker" } } %></h5>
+          <h6 class="card-text"><%= f.input :start_point,
+                          input_html: {data: {address_autocomplete_target: "start_point"}},
+                          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %></h6>
+          <h6 class="card-text"><%= f.input :end_point %></h6>
+          <h6 class="card-text"><%= f.input :shipment_info %></h6>
+          <%= f.submit "Create", :class => "btn btn-success " %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

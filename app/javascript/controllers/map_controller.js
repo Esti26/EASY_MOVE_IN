@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   connect() {
-    mapboxgl.accessToken = this.apiKeyValue;
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0aTI2IiwiYSI6ImNsaG9vMDF2cjFtMGozZHMxdmE0MnJrbzIifQ.SUs4-1vCL28RYJgPwDUFPA';
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12"
