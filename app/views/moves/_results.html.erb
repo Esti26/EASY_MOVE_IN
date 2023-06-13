@@ -19,6 +19,7 @@
       <br>
       <div class="link-container justify-content-between d-flex">
         <div><%= link_to "Details", move_path(move.id), class: "small_button" %></div>
+        <div><%= link_to "Create New Chat", new_chatroom_path, class: "small_button" %></div>
         <% company = Company.find_by(user_id: current_user) %>
         <% if bid = move.bids.find_by(company_id: company) %>
           <div>

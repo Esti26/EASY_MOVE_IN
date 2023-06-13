@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create edit delete update]
   end
   get "/company/:id", to: "company#show", as: "company_show"
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[new create show] do
     resources :messages, only: :create
   end
 end

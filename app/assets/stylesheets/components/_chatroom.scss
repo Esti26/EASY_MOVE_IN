@@ -13,11 +13,11 @@
     padding: 1rem;
   }
 
-  .messages {
-    height: 100%;
-    overflow: scroll;
-    padding: 1rem;
-  }
+  // .messages {
+  //   height: 100%;
+  //   overflow: scroll;
+  //   padding: 1rem;
+  // }
 
   #new_message {
     border-top: 1px solid $gray-200;
@@ -27,4 +27,24 @@
       margin-bottom: 0;
     }
   }
+  .message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .sent {
+    background-color: #DCF8C6;
+    color: #333333;
+    align-self: flex-end;
+  }
+
+  .received {
+    background-color: #F6F6F6;
+    color: #333333;
+    align-self: flex-start;
+  }
+
 }
