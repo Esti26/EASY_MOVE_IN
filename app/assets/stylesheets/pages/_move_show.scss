@@ -1,5 +1,6 @@
 #showcards {
   background-color: #f8f9fa;
+  text-align: start;
 }
 
 .card-title, .card-text {
@@ -25,4 +26,10 @@
 .moves-text {
   text-align: left;
   margin-top: -50px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  margin-top: 21px;
 }
