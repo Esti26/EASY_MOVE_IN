@@ -70,11 +70,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-top: 10px;
-    border-radius: 50%;
-    background-color: #e74c3c;
+    border-radius: 5px;
+    background-color: #ffffff;
     color: black;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -87,14 +87,13 @@
   }
 
   .delete-button:hover {
-    background-color: #c0392b;
+    background-color: #ffffff;
   }
 
   .delete-button i {
-    display: none;
     color: black;
-    top: 7px;
-    right: 9px;
+    top: 3px;
+    right: 5px;
     position: absolute;
     font-size: 16px;
 
