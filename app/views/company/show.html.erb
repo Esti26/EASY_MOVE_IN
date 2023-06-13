@@ -10,12 +10,12 @@
           <%= link_to "add a review", new_company_review_path(@company.id), class: "small_button_goal" %>
 
       </div>
-      <%# <% if @reviews%>
+      <% if @reviews %>
       <div>
-      <%# <% @reviews.each do |review| %>
-      <%# <%= review.content %>
-      <%# <%end%>
+       <% @reviews.each do |review| %>
+      <%= review.content %>
+      <%end%>
       </div>
-      <%# <%end%>
+      <%end%>
 
     </div>

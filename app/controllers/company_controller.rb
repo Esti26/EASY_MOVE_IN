@@ -4,11 +4,7 @@ class CompanyController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @reviews = Review.find_by(company_id: params[:id])
-    # @move = Move.find(params[:id])
-    # @current_user = current_user
-    # @moves = Move.all
-    # @move = Move.where(move_id: params[:id]).first
+    @reviews = Review.where(company_id: params[:id])
   end
 
   def new
