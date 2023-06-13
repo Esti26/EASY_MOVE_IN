@@ -22,10 +22,10 @@ Message.destroy_all
 expiration_date = Time.now + (10 * 60 * 60)
 
 puts "Creating Users"
-User.create(email: 'esti@example.com', password: "123456", profile_pic: "/app/assets/images/esti.jpeg", first_name: "Esti", last_name: "Lorenzo")
-User.create(email: 'ahmed@example.com', password: "123456", profile_pic: "/app/assets/images/ahmed.png", first_name: "Ahmed", last_name: "Fayed")
-User.create(email: 'madhava@example.com', password: "123456", profile_pic: "/app/assets/images/madhava.png", first_name: "Madhava", last_name: "Franchin")
-User.create(email: 'william@example.com', password: "123456", profile_pic: "/app/assets/images/william.png", first_name: "William", last_name: "Dela Rosa")
+User.create(email: 'esti@example.com', password: "123456", profile_pic: "/app/assets/images/Esti.jpg", first_name: "Esti", last_name: "Lorenzo")
+User.create(email: 'ahmed@example.com', password: "123456", profile_pic: "/app/assets/images/Ahmed.jpg", first_name: "Ahmed", last_name: "Fayed")
+User.create(email: 'madhava@example.com', password: "123456", profile_pic: "/app/assets/images/Madhava.jpg", first_name: "Madhava", last_name: "Franchin")
+User.create(email: 'william@example.com', password: "123456", profile_pic: "/app/assets/images/William.jpg", first_name: "William", last_name: "Dela Rosa")
 User.create(email: 'adam@example.com', password: "123456", profile_pic: "/app/assets/images/Adam.jpg", first_name: "Adam", last_name: "White")
 User.create(email: 'lisa@example.com', password: "123456", profile_pic: "/app/assets/images/Lisa.jpg", first_name: "Lisa", last_name: "Black")
 
