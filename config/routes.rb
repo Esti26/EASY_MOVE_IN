@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :bids
   end
 
-
   get "/clients", to: "moves#client_index", as: "client"
   get "/companies", to: "moves#company_index", as: "company"
   get "/companies/bids", to: "bids#index", as: "company_bids"

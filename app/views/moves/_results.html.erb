@@ -1,16 +1,8 @@
  <div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
  <% moves.each do |move| %>
+ <%if move.status = "open"%>
     <div class="small-card mb-5" id="card-div">
       <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
-        <div>
-          <% if move.status == "open" %>
-            <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
-          <% elsif move.status == "pending" %>
-            <h6 style="margin-left: 200px"> <i class="fa-solid fa-arrows-rotate fa-spin"> </i> <%= move.status %> </h6>
-          <% elsif move.status == "confirmed" %>
-            <h6 style="margin-left: 200px"> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
-          <% end %>
-        </div>
         <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
           <%= move.date.strftime("%d %b %Y") %></h5>
         <br>
@@ -41,4 +33,5 @@
         <% end %>
       </div>
     </div>
+    <%end%>
   <% end %>

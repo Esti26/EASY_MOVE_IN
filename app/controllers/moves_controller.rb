@@ -42,6 +42,7 @@ class MovesController < ApplicationController
   end
 
   def company_index
+
     if params[:query].present?
       sql_query = <<~SQL
         moves.shipment_info ILIKE :query
