@@ -10,7 +10,7 @@
       <div id="indexcard" class="card-body">
         <div class="d-flex align-items-center">
           <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-          <h5 id="indexcard" class="card-title"><%= Time.at(move.date) %> UTC</h5>
+          <h5 id="indexcard" class="card-title"><%=move.date.strftime("%d %b %Y %l:%m %p") %></h5>
         </div>
         <div class="d-flex align-items-center">
           <i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i>

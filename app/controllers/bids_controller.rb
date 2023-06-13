@@ -7,12 +7,26 @@ class BidsController < ApplicationController
       @bids = Bid.where(move_id: @move.id)
     end
 
+    query = params[:query]
+    if query.present? && query == "price"
+      @bids = @bids.order(price: :desc)
+    end
   end
 
   def show
     @move = Move.find(params[:move_id])
     @bid = Bid.find(params[:id])
     @current_user = current_user
+  end
+
+  def hire
+    # Logic to update the item's status and perform any necessary actions
+    @move = Move.find(params[:move_id])
+    @bid = bid.find(params[:id])
+    @bid.update(status: "pending")
+    @move.update(status: "pending")
+    flash[:notice] = "a request has been sent to the company."
+    redirect_to clients_path
   end
 
   def new
