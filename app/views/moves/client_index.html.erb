@@ -6,8 +6,20 @@
 </div>
 <div class="movescard" id="client-index">
   <% @moves.each do |move| %>
-    <div class="card" data-controller="popup" data-popup-id-value="<%= move.id %>">
-      <div id="indexcard" class="card-body">
+    <div class="card popup" data-controller="popup" data-popup-id-value="<%= move.id %>">
+      <% bid = move.bids.where(status: "pending").or(move.bids.where(status: "confirmed")).first %>
+      <% if bid %>
+        <div class="bid-tag">
+          <%= link_to "bid", bid_path(bid) %>
+        </div>
+      <% end %>
+        <div id="indexcard" class="card-body">
+        <div class="delete_button_wrapper">
+          <%= link_to  move_path(move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-times"></i>
+          <% end
+           %>
+        </div>
         <div class="d-flex align-items-center">
           <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
           <h5 id="indexcard" class="card-title"><%= Time.at(move.date) %> UTC</h5>
@@ -23,7 +35,6 @@
         <div class="d-flex justify-content-between">
           <a href="#" data-action="click->popup#open" class="small_button">See details</a>
           <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
-          <%= link_to "", move_path(move.id), class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
       </div>
     </div>
@@ -32,4 +43,3 @@
     </div>
   <% end %>
 </div>
-
