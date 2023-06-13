@@ -26,7 +26,7 @@ class MovesController < ApplicationController
 
   def update
     if @move.update(move_params)
-      redirect_to @move, notice: 'move was successfully updated.'
+      redirect_to client_path, notice: 'move was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class MovesController < ApplicationController
 
   def destroy
     @move.destroy
-    redirect_to client_path, notice: 'move was successfully destroyed'
+    redirect_to client_path, notice: 'move was successfully deleted'
   end
 
   def client_index
