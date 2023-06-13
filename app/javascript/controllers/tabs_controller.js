@@ -6,7 +6,7 @@ export default class extends Controller {
   static values = { defaultTab: String }
 
   connect() {
-    this.tabTargets.map(x => x.hidden = true) // hide all tabs by default
+    this.tabTargets.map(x => x.hidden = false) // hide all tabs by default
     // OPEN DEFAULT TAB
     try {
       let selectedBtn = this.btnTargets.find(element => element.id === this.defaultTabValue)
