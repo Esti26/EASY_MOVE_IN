@@ -78,7 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_232118) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "company_id", null: false
-    t.integer "average_rating"
     t.integer "efficiency_rating"
     t.integer "punctuality_rating"
     t.integer "politeness_rating"

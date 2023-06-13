@@ -1,0 +1,37 @@
+ <div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
+ <% moves.each do |move| %>
+ <%if move.status = "open"%>
+    <div class="small-card mb-5" id="card-div">
+      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
+        <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%d %b %Y") %></h5>
+        <br>
+        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%l:%m %p") %></h5>
+          <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
+
+        <br><h6>from</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+          <%= move.start_point %></h5>
+        <br><h6 class="ml-1" >to</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+      <% end %>
+      <br>
+      <div class="link-container justify-content-between d-flex">
+        <div><%= link_to "Details", move_path(move.id), class: "small_button" %></div>
+        <% company = Company.find_by(user_id: current_user) %>
+        <% if bid = move.bids.find_by(company_id: company) %>
+          <div>
+            <h6>your bid</h6>
+            <div class="d-flex">
+              <h2><%= bid.price %> €</h2>
+              <%= link_to "", edit_move_bid_path(move.id, bid.id), class: "btn text-light fa-solid fa-pen" %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+        <% end %>
+      </div>
+    </div>
+    <%end%>
+  <% end %>

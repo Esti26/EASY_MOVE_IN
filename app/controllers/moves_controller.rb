@@ -42,6 +42,7 @@ class MovesController < ApplicationController
   end
 
   def company_index
+
     if params[:query].present?
       sql_query = <<~SQL
         moves.shipment_info ILIKE :query
@@ -70,7 +71,7 @@ class MovesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.text {render partial: "moves/companies", locals: { moves: @moves, markers: @markers}, formats: [:html]}
+      format.text {render partial: "moves/results", locals: { moves: @moves, markers: @markers }, formats: [:html]}
     end
   end
 

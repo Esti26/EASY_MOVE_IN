@@ -52,12 +52,19 @@
 }
 
 #client-index .card {
+<<<<<<< HEAD
   width: 550px;
+=======
+
+  width: 550px ;
+
+>>>>>>> master
   margin: 16px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+<<<<<<< HEAD
 .delete_button_wrapper {
   position: absolute;
   top: 5px;
@@ -119,3 +126,27 @@
 }
 
 }
+=======
+
+.bidscard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 8%;
+  width: 80%;
+}
+
+.card-tab {
+ margin-left: 39%;
+}
+
+.card-title-for-status {
+  display: flex;
+
+  .status-icon{
+    margin-left: auto;
+  }
+}
+
+>>>>>>> master

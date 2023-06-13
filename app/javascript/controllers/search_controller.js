@@ -9,7 +9,7 @@ export default class extends Controller {
     if (searchForm) {
       searchForm.addEventListener("keyup", (event) => {
         event.preventDefault(); // Prevent the default form submission
-        const query = searchForm ? searchForm.value : null;
+        const query = document.querySelector("#query").value
         const filter = filterForm.querySelector("#search_query_filter").value;
         console.log(filter, query);
         this.searchMoves(query, filter);
@@ -34,13 +34,20 @@ export default class extends Controller {
     console.log(url.toString());
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
-      .then(html => {
-        const moveGrid = document.querySelector(".move-grid");
-        moveGrid.innerHTML = html;
+      .then(results_partial => {
+        const results = document.getElementById("move-grid");
+        const markers = document.getElementById("search-markers").dataset.marker;
+        document.getElementById("map").dataset.mapMarkersValue = JSON.parse(markers);
+
+        results.innerHTML = results_partial;
+        this.#update(markers);
       })
       .catch(error => {
         console.error("Search request failed:", error);
       });
+  }
+  #update(markers) {
+    this.dispatch('update', {  detail: {markers}});
   }
 
   sort() {
