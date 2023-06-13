@@ -42,14 +42,35 @@ class MovesController < ApplicationController
   end
 
   def company_index
-    @moves = Move.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        moves.shipment_info ILIKE :query
+        OR moves.start_point ILIKE :query
+        OR moves.end_point ILIKE :query
+      SQL
+      @moves = Move.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @moves = Move.all
+    end
+
+    if params[:filter] == "created"
+      @moves = @moves.order(created_at: :desc)
+    elsif params[:filter] == "earliest"
+      @moves = @moves.order(date: :asc)
+    end
+
     @markers = @moves.geocoded.map do |move|
       {
         lat: move.latitude,
         lng: move.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { move: move }),
-        marker_html: render_to_string(partial: "marker", locals: { move: move })
+        info_window_html: render_to_string(partial: "moves/info_window", locals: { move: move }, formats: [:html]),
+        marker_html: render_to_string(partial: "moves/marker", locals: { move: move }, formats: [:html])
       }
+    end
+
+    respond_to do |format|
+      format.html
+      format.text {render partial: "moves/companies", locals: { moves: @moves, markers: @markers}, formats: [:html]}
     end
   end
 
