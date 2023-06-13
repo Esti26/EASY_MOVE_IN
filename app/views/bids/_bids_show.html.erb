@@ -1,0 +1,40 @@
+
+
+  <h1 class="moves-text">My move</h1>
+  <div class="container-full d-flex justify-content-center">
+    <div class="container-full d-flex flex-wrap justify-content-center showcard">
+      <div class="card col-8">
+        <div id="showcards" class="card-body d-flex flex-column justify-content-between">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h5 id="showcards" class="card-title"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><h6><%= Company.find(bid.company_id).name %></h5>
+              <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-tag" style="color: #f66b0e;"></i><h6><%= bid.price %>€ </h5>
+              <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
+              <h5 id="showcards" class="card-text"><i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i><%= bid.created_at.strftime(" %d %b %Y ") %></h5>
+              <h5 id="showcards" class="card-text"><i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i><%= bid.created_at.strftime("%l:%M %p") %></h5>
+              <h5 id="showcards" class="card-text">
+                <div class="move-status">
+                  <% if bid.status == "open" %>
+                    <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %>
+                  <% elsif bid.status == "pending" %>
+                    <i class="fa-solid fa-arrows-rotate fa-spin"></i> <%= bid.status %>
+                  <% elsif bid.status == "confirmed" %>
+                    <i class="fa-solid fa-square-check" style="color: #73c431;"></i> <%= bid.status %>
+                  <% end %>
+                </div>
+              </h5>
+            </div>
+            <div>
+              <h5 id="shipmenttext" class="card-text"><i class="iconmove fa-solid fa-circle-info"></i> Shipment Info:</h5>
+              <p id="shipmenttext" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo sapien ut nunc rhoncus, et cursus dui lacinia.</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <%# <%= link_to "See received bids", move_bids_path(move.id), class: "small_button" %>
+            <%# <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
+            <%# <%= link_to "", move_path(move.id), class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
