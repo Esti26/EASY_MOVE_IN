@@ -35,6 +35,20 @@ class BidsController < ApplicationController
     end
   end
 
+  def confirm
+    @move = Move.find(params[:move_id])
+    @bid = @move.bids.find(params[:id])
+    # Perform the necessary updates here
+    # For example:
+    @move.status = "confirmed"
+
+    @bid.status = "confirmed"
+
+    if @move.save && @bid.save
+      redirect_to company_bids_path, notice: "Bid confirmed successfully!"
+    end
+  end
+
   def new
     @move = Move.find(params[:move_id])
     @bid = Bid.new

@@ -57,15 +57,15 @@
   </div class="info mt-5 ">
   <% if @next_move.status=="open" %>
   <div style="width: 540px;padding: 122px;margin-left: 65px;">
-    Your move is now published. Wait for companies to bid on it! Review the bids and hire the best company.
+    <h3>Your move is now published. Wait for companies to bid on it! Review the bids and hire the best company.</h3>
   </div>
   <% elsif @next_move.status=="pending" %>
   <div style="width: 540px;padding: 122px;margin-left: 65px;">
-    You have now hired a company for your move. Now wait for the company to confirm that they are still available on that date!
+    <h3>You have now hired a company for your move. Now wait for the company to confirm that they are still available on that date!</h3>
   </div>
    <% else %>
   <div style="width: 540px;padding: 122px;margin-left: 65px;">
-    The company has confirmed your move! Now relax and let them come pick up your stuff!
+    <h3>The company has confirmed your move! Now relax and let them come pick up your stuff! </h3>
   </div>
   <%end  %>
 </div>

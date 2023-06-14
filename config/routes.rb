@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :bids, only: [:show]
 
+  patch '/companies/bids', to: 'bids#confirm', as: 'confirm_bid'
   patch 'moves/:move_id/bids/:id/hire', to: 'bids#hire', as: 'hire_bid'
   get "/bids", to: "bids#index", as: "bids"
   get "/clients", to: "moves#client_index", as: "client"
