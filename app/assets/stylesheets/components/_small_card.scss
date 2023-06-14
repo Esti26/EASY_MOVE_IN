@@ -1,8 +1,9 @@
 .small-card{
   padding: 20px;
+  color: black;
   background-color: white;
   border-radius: 10px;
-  font-family: 'Architects Daughter', cursive ;
+  font-family: "Nunito", "Helvetica", "sans-serif";
   font-size: 20px;
   box-shadow: 5px 5px 5px grey;
   transition: .2s all ease-in-out;
@@ -13,6 +14,9 @@
   }
 a {
   color:black;
+}
+.small_button{
+  color: white
 }
   i {
     color: #f66b0e;
