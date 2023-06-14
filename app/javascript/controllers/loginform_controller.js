@@ -15,10 +15,10 @@ export default class extends Controller {
       nextPage(-1);
     });
 
-    document.getElementById('form').addEventListener('submit', function (e) {
+  /*   document.getElementById('form').addEventListener('submit', function (e) {
       e.preventDefault();
       alert('Form submitted successfully!');
-    });
+    }); */
 
     function showPage(pageNumber) {
       var pages = document.getElementsByClassName('page');
