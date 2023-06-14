@@ -9,14 +9,14 @@
                     <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %>
                   <% elsif move.status == "pending" %>
                     <i class="fa-solid fa-arrows-rotate fa-spin"></i> <%= move.status %>
-                  <% elsif move.status == "confirmed" %>
+                  <% else move.status == "confirmed" %>
                     <i class="fa-solid fa-square-check" style="color: #73c431;"></i> <%= move.status %>
                   <% end %>
                 </div>
               <div>
                 <%= link_to  move_path(@next_move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <i class="fa-solid fa-times"></i>
-            <% end%>
+                  <i class="fa-solid fa-times"></i>
+                <% end%>
               </div>
           </div>
         <div class="d-flex justify-content-between">
@@ -41,7 +41,6 @@
           <div>
             <h5 id="shipmenttext" class="card-text"><i class="iconmove fa-solid fa-circle-info"></i> Shipment Info:</h5>
             <p id="shipmenttext" class="card-text"><%= move.shipment_info %></p>
-            <% if  %>
           </div>
           </div>
         </div>
