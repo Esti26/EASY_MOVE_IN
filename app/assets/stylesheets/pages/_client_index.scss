@@ -142,3 +142,18 @@
 .fa-building {
   font-size: 24px;
 }
+
+#client-empty-index {
+  width: 60vw;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+#client-empty-index h2{
+  color: #333;
+  opacity: 0.4;
+}

@@ -115,7 +115,7 @@
     </div>
   </div>
 
-<% else Client.find_by(user_id: current_user.id) %>
+<% elsif Client.find_by(user_id: current_user.id) && @move.bids.present?%>
 
     <div class="container col-4 d-flex justify-content-center" data-controller="filter">
     <div class="col-6">
@@ -163,7 +163,17 @@
               <div id="<%= bid.id%>" class="d-none">
                 <%= render "bids_show", bid: bid %>
               </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <h1 class="bids-text">My recieved bids</h1>
+  <div class="container d-flex justify-content-center"  >
+    <div id="client-empty-index">
+      <h2>Opps! yet to recive any bids please have patience</h2>
+    </div>
+  </div>
 <% end %>
