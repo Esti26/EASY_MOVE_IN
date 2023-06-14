@@ -11,7 +11,12 @@ export default class extends Controller {
     Swal.fire({
       html: show.innerHTML,
       width: "80vw",
-      heightAuto: false
+      heightAuto: false,
+      showConfirmButton: false,
+      // timer: 3000,
+      // timerProgressBar: true,
+      showCloseButton: true,
+
     })
   }
 }
