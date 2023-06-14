@@ -35,22 +35,22 @@ export default class extends Controller {
         showPage(currentPage);
       }
     }
-    
+
     const inputFields = document.querySelectorAll('.input-container input[type="date"], .input-container input[type="text"]');
 
-    inputFields.forEach(function (inputField) {
-      inputField.addEventListener('focus', function () {
-        const icon = inputField.previousElementSibling;
-        icon.style.display = 'none';
-      });
+    // inputFields.forEach(function (inputField) {
+    //   inputField.addEventListener('focus', function () {
+    //     const icon = inputField.previousElementSibling;
+    //     icon.style.display = 'none';
+    //   });
 
-      inputField.addEventListener('blur', function () {
-        const icon = inputField.previousElementSibling;
-        if (inputField.value === '') {
-          icon.style.display = 'block';
-        }
-      });
-    });
+    //   inputField.addEventListener('blur', function () {
+    //     const icon = inputField.previousElementSibling;
+    //     if (inputField.value === '') {
+    //       icon.style.display = 'block';
+    //     }
+    //   });
+    // });
 
   }
 }
