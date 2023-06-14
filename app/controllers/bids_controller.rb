@@ -49,7 +49,7 @@ class BidsController < ApplicationController
     @bid.status = "open"
     @bid.expiration = false
     if @bid.save!
-      redirect_to move_bid_path(@move, @bid)
+      redirect_to company_path
     else
       render :new, status: :unprocessable_entity
     end

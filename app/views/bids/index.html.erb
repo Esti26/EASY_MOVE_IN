@@ -32,11 +32,11 @@
 
                   <div class="status-icon">
                     <%if bid.status == "open"%>
-                    <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
+                      <h6><i class="fa-solid fa-arrow-rotate-right"></i><%= bid.status %></h6>
                     <%elsif bid.status = "pending"%>
-                      <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
+                      <h6><i class="fa-solid fa-arrows-rotate fa-spin"></i><%= bid.status %></h6>
                     <%elsif bid.status = "confirmed"%>
-                      <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+                      <h6><i class="fa-solid fa-square-check" style="color: #73c431;"></i><%= bid.status %></h6>
                     <%end%>
                   </div>
                   <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>

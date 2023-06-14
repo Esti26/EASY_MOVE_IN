@@ -1,13 +1,10 @@
 <div class="container d-flex justify-content-between mt-3 mb-3">
   <div class="small-card align-content-center" >
-      <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
-              <%= @move.date.strftime("%d %b %Y") %></h5>
+      <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i><%= @move.date.strftime("%d %b %Y") %></h5>
               <br>
-      <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
-              <%= @move.date.strftime("%l:%m %p") %></h5>
+      <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i><%= @move.date.strftime("%l:%m %p") %></h5>
             <br><h6>from</h6>
-      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
-              <%= @move.start_point %></h5>
+      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i><%= @move.start_point %></h5>
             <br><h6 class="ml-1" >to</h6>
       <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= @move.end_point %></h5>
       <br>
@@ -19,10 +16,22 @@
       <%# </h5> %>
       <%= simple_form_for([@move, @bid]) do |f| %>
         <div class="card-body">
-          <h5 class="card-text"><%= f.input :price %></h5>
-          <button id="submitBtn" class="small_button_goal" type="submit">Place bid</button>      </div>
-        <% end %>
-    </div>
+          <% company = Company.find_by(user_id: current_user) %>
+          <% if @bid = @move.bids.find_by(company_id: company) %>
+            <div>
+              <h6>your bid</h6>
+              <div class="d-flex">
+                <h2><%= @bid.price %> €</h2>
+            </div>
+
+          <% else %>
+            <h5 class="card-text"><%= f.input :price %></h5>
+            <button company_path id="submitBtn" class="small_button_goal" type="submit">Place bid</button>
+            <% end %>
+          <% end %>
+        </div>
+  </div>
+</div>
     <div class="right-container"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"

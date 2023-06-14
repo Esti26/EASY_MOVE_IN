@@ -11,8 +11,10 @@
         <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
       <% end %>
       <br>
-      <div class="link-container justify-content-between d-flex">
-        <div><%= link_to "Details", move_path(move.id), class: "small_button" %></div>
+      <div class="link-container justify-content-between d-flex" data-controller="popup" data-popup-id-value="<%= move.id %>">
+       <div class="d-flex justify-content-between">
+          <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+        </div>
         <div><%= link_to "", new_chatroom_path, class: "btn fa-solid fa-envelope" %></div>
         <% company = Company.find_by(user_id: current_user) %>
         <% if bid = move.bids.find_by(company_id: company) %>
