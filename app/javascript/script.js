@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('form');
   const pages = document.getElementsByClassName('page');
-  const prevBtns = document.querySelectorAll('[id^="prevBtn"]');
-  const nextBtns = document.querySelectorAll('[id^="nextBtn"]');
+  const prevBtns = document.getElementById('prevBtn1');
+  const nextBtns = document.getElementById('nextBtn1');
 
   let currentPage = 0;
 
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  for (let i = 0; i < nextBtns.length; i++) {
-    nextBtns[i].addEventListener('click', navigateToNextPage);
-  }
 
-  for (let i = 0; i < prevBtns.length; i++) {
-    prevBtns[i].addEventListener('click', navigateToPrevPage);
-  }
+    nextBtns.addEventListener('click', navigateToNextPage);
+
+
+
+    prevBtns.addEventListener('click', navigateToPrevPage);
+
 });
