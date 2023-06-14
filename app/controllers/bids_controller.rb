@@ -1,10 +1,13 @@
 class BidsController < ApplicationController
   def index
+
     if @company = Company.find_by(user_id: current_user.id)
       @bids = Bid.where(company_id: @company.id)
     else
       @move = Move.find(params[:move_id])
       @bids = Bid.where(move_id: @move.id)
+      @hired = @move.status =="pending" && @bids.where(status: "pending").count == 1
+
     end
 
     query = params[:query]
@@ -20,13 +23,17 @@ class BidsController < ApplicationController
   end
 
   def hire
-    # Logic to update the item's status and perform any necessary actions
     @move = Move.find(params[:move_id])
-    @bid = bid.find(params[:id])
-    @bid.update(status: "pending")
-    @move.update(status: "pending")
-    flash[:notice] = "a request has been sent to the company."
-    redirect_to clients_path
+    @bid = @move.bids.find(params[:id])
+    # Perform the necessary updates here
+    # For example:
+    @move.status = "pending"
+
+    @bid.status = "pending"
+
+    if @move.save && @bid.save
+      redirect_to client_path, notice: "Bid hired successfully!"
+    end
   end
 
   def new
