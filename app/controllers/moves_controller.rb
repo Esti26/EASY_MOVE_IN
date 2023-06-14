@@ -39,11 +39,12 @@ class MovesController < ApplicationController
 
   def client_index
     @moves = Move.where(client_id: current_user)
+    @next_move = @moves.where("date > ?", Time.now).first
+    @moves = @moves.reject { |move| move.id == @next_move.id }
     @user = User.find(current_user.id)
   end
 
   def company_index
-
     if params[:query].present?
       sql_query = <<~SQL
         moves.shipment_info ILIKE :query
@@ -54,6 +55,7 @@ class MovesController < ApplicationController
     else
       @moves = Move.all
     end
+
 
     if params[:filter] == "created"
       @moves = @moves.order(created_at: :desc)
