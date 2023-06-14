@@ -1,9 +1,11 @@
 <div class="container-full d-flex justify-content-end addmove">
   <%= link_to "Add a new move", new_move_path, class: "small_button" %>
 </div>
+
 <div class="container d-flex justify-content-center">
   <h1 class="moves-text">My published moves</h1>
 </div>
+
 <div class="movescard" id="client-index">
   <% @moves.each do |move| %>
     <div class="card popup" data-controller="popup" data-popup-id-value="<%= move.id %>">
@@ -14,12 +16,11 @@
         </div>
       <% end %>
         <div id="indexcard" class="card-body">
-        <div class="delete_button_wrapper">
-          <%= link_to  move_path(move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <i class="fa-solid fa-times"></i>
-          <% end
-           %>
-        </div>
+          <div class="delete_button_wrapper">
+            <%= link_to  move_path(move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-times"></i>
+            <% end%>
+          </div>
         <div class="d-flex align-items-center">
           <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
           <h5 id="indexcard" class="card-title"><%= Time.at(move.date) %> UTC</h5>
