@@ -258,3 +258,8 @@ h2 {
   font-weight: bold;
   color: #555;
 }
+
+#page2 .buttons {
+  display: flex;
+  justify-content: space-between;
+}

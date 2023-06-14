@@ -43,3 +43,26 @@ a.small_button_goal {
 
   }
 }
+
+input.small_button_goal {
+  background-color: #f66b0e;
+  margin-top: 20px;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  transition: .3s all ease-in-out;
+  &:hover {
+    color:#f66b0e;
+    background-color: white;
+    font-weight: 900;
+
+  }
+}
