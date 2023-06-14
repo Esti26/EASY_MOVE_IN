@@ -7,6 +7,7 @@
 
 .iconmove {
   margin-right: 10px;
+  font-weight: bolder;
 }
 
 .movescard {
@@ -26,7 +27,6 @@
 .moves-text {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 24px;
   color: #333;
   position: relative;
 }
@@ -34,7 +34,7 @@
 #client-index .card {
   width: 45%;
   margin: 16px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -56,7 +56,6 @@
   width: 550px ;
 
   margin: 16px;
-  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -112,7 +111,6 @@
   height: 90px;
   background-color: $n-blue;
   border-radius: 8px 0 0 0;
-  box-shadow: 5px 5px 5px grey;
   transition: 0.3s all ease-in-out;
   &:hover {
     transform: translateY(-70%)
@@ -140,4 +138,7 @@
   .status-icon{
     margin-left: auto;
   }
+}
+.fa-building {
+  font-size: 24px;
 }
