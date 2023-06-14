@@ -68,6 +68,7 @@
 <h2 style="margin: 65px;">Here are your other moves!</h2>
 <div class="container d-flex flex-wrap justify-content-between" >
   <% @moves.each do |move| %>
+
     <div class="small-card mb-5 card popup" style="width: 540px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= move.id %>">
       <div class="status-icon">
         <%if move.status == "open"%>
