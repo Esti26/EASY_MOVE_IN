@@ -24,7 +24,7 @@
             </div>
           </div>
         <% else %>
-          <%= link_to "Bid", bid_path(move.id), class: "small_button_goal" %>
+          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
         <% end %>
       </div>
     </div>
