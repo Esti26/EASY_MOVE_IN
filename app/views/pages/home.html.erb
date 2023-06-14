@@ -22,10 +22,7 @@
       <h2>Tell us.. </h2>
       <div class="input-container">
         <label for="dateInput">When?</label>
-        <%= form.date_field :date %>
-        <div class="input-container">
-          <label for="timeInput">What time?</label>
-          <%= form.time_select :time, { include_blank: true }, { class: 'time-input' } %>
+            <%= form.text_field :date, "data-controller": "datepicker", placeholder: 'When?' %><div class="input-container">
         </div>
       </div>
       <div class="input-container">

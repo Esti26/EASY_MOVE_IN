@@ -12,7 +12,7 @@ class MovesController < ApplicationController
   end
 
   def create
-    @move = Move.new(start_point: params[:start_point], end_point: params[:end_point], shipment_info: params[:shipment_info])
+    @move = Move.new(start_point: params[:start_point], end_point: params[:end_point], shipment_info: params[:shipment_info], date: params[:date])
     @move.client_id = current_user.id
     if @move.save
       redirect_to client_path, notice: 'moves was successfully created.'
