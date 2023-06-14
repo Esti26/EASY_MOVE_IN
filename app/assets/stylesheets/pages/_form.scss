@@ -2,3 +2,34 @@
   display: flex;
   justify-content: center;
 }
+
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add color scheme styles */
+.form-label {
+  color: #112B3C;
+}
+
+.btn-success {
+  background-color: #f66b0e;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  text-align: center;
+  padding: 10px 28px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: .3s all ease-in-out
+}
+
