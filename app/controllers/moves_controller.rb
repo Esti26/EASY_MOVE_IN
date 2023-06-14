@@ -26,7 +26,7 @@ class MovesController < ApplicationController
 
   def update
     if @move.update(move_params)
-      redirect_to @move, notice: 'move was successfully updated.'
+      redirect_to client_path, notice: 'move was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,11 +34,14 @@ class MovesController < ApplicationController
 
   def destroy
     @move.destroy
-    redirect_to client_path, notice: 'move was successfully destroyed'
+    redirect_to client_path, notice: 'move was successfully deleted'
   end
 
   def client_index
     @moves = Move.where(client_id: current_user)
+    @next_move = @moves.where("date > ?", Time.now).first
+    @moves = @moves.reject { |move| move.id == @next_move.id }
+    @user = User.find(current_user.id)
   end
 
   def company_index
@@ -52,6 +55,7 @@ class MovesController < ApplicationController
     else
       @moves = Move.all
     end
+
 
     if params[:filter] == "created"
       @moves = @moves.order(created_at: :desc)
@@ -70,7 +74,7 @@ class MovesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.text {render partial: "moves/companies", locals: { moves: @moves, markers: @markers}, formats: [:html]}
+      format.text {render partial: "moves/results", locals: { moves: @moves, markers: @markers }, formats: [:html]}
     end
   end
 

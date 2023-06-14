@@ -1,0 +1,19 @@
+<h1>Add a review for <%= @company.name %> </h1>
+<div class="container-full d-flex justify-content-center">
+  <div class="container-full d-flex flex-wrap justify-content-center showcard">
+    <div class="card col-8 mb-5">
+      <%= simple_form_for([@company, @review])do |f| %>
+        <div class="card-body">
+          <h5 class="card-text"><%= f.input :efficiency_rating%></h5>
+          <h5 class="card-text"><%= f.input :punctuality_rating%></h5>
+          <h5 class="card-text"><%= f.input :politeness_rating%></h5>
+          <%# <h5 class="card-text"><%= f.image :image%></h5>
+          <h5 class="card-text"><%= f.input :content%></h5>
+          <%= f.submit "Create", :class => "btn btn-success " %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+>

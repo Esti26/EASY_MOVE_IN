@@ -22,10 +22,11 @@ Message.destroy_all
 expiration_date = Time.now + (10 * 60 * 60)
 
 puts "Creating Users"
-User.create(email: 'esti@example.com', password: "123456", profile_pic: "/app/assets/images/esti.jpeg", first_name: "Esti", last_name: "Lorenzo")
-User.create(email: 'ahmed@example.com', password: "123456", profile_pic: "/app/assets/images/ahmed.png", first_name: "Ahmed", last_name: "Fayed")
-User.create(email: 'madhava@example.com', password: "123456", profile_pic: "/app/assets/images/madhava.png", first_name: "Madhava", last_name: "Franchin")
-User.create(email: 'william@example.com', password: "123456", profile_pic: "/app/assets/images/william.png", first_name: "William", last_name: "Dela Rosa")
+
+User.create(email: 'esti@example.com', password: "123456", profile_pic: "/app/assets/images/Esti.jpg", first_name: "Esti", last_name: "Lorenzo")
+User.create(email: 'ahmed@example.com', password: "123456", profile_pic: "/app/assets/images/Ahmed.jpg", first_name: "Ahmed", last_name: "Fayed")
+User.create(email: 'madhava@example.com', password: "123456", profile_pic: "/app/assets/images/Madhava.jpg", first_name: "Madhava", last_name: "Franchin")
+User.create(email: 'william@example.com', password: "123456", profile_pic: "/app/assets/images/William.jpg", first_name: "William", last_name: "Dela Rosa")
 User.create(email: 'adam@example.com', password: "123456", profile_pic: "/app/assets/images/Adam.jpg", first_name: "Adam", last_name: "White")
 User.create(email: 'lisa@example.com', password: "123456", profile_pic: "/app/assets/images/Lisa.jpg", first_name: "Lisa", last_name: "Black")
 
@@ -60,19 +61,22 @@ Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.ne
 Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 6, 23, 11, 0, 0), start_point: "Rosenthalerstr. 12, Berlin", end_point: "Lindenstr. 203, Berlin", shipment_info: "I need a box", status:"pending", expiration: expiration_date)
 Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 7, 23, 10, 0, 0), start_point: "Charlottenstr. 12, Berlin", end_point: "Alexanderplatz 203, Berlin", shipment_info: "My biggest item is a piano", status:"confirmed", expiration: expiration_date)
 
-
 puts "Creating Review"
-Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by(first_name: "Esti").id, average_rating: 3,efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
-Review.new(company_id: Company.find_by(name: "Umzug").id, client_id:User.find_by(first_name: "Madhava").id, average_rating: 4,efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!" )
-Review.new(company_id: Company.find_by(name: "Realiable Move").id, client_id:User.find_by(first_name: "Madhava").id, average_rating: 5,efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
+Review.create(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Esti").id, efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
+Review.create(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!",image: "/app/assets/images/broken_box.png"  )
+Review.create(company_id: Company.find_by(name: "Realiable Move").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
-# puts "Creating Bids"
-# Message.new(content:"Hey were are you? I am downstairs but cannot see you")
+puts "Creating Chatroom"
+Chatroom.create(name: "general")
+
+puts "Creating Messages"
+Message.create(content: "Hey were are you? I am downstairs but cannot see you", user_id: 1, chatroom_id: 1)
 # Message.new(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late")
 # Message.new(content:"40 minutes have passed but still cannot see you. Are you coming?")
 # Message.new(content:"Yes! Still stuck in the traffic jam. Will be another 20 minutes late. Sorry for the inconveniences.")
 
-# Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"Hey were are you? I am downstairs but cannot see you", status: "read"))
+# Chatroom.create(company_id: 2, name: "general", client_id: 1, message_id: 1)
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"Sorry. Stuck in a traffic jam. Will be 40 minutes late", status: "read"))
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"40 minutes have passed but still cannot see you. Are you coming?", status: "read"))
 # Chatroom.new(company_id: Company.find_by(name: "Umzug"), client_id:User.find_by(first_name: "Madhava"), content: Message.find_by(content:"Yes! Still stuck in the traffic jam. Will be another 20 minutes late. Sorry for the inconveniences.", status: "read"))
+puts "Seeded successfully"

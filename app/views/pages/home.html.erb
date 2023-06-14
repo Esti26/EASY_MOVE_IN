@@ -3,38 +3,47 @@
 <div id="homepage" class="container-full">
   <%= image_tag "https://images.unsplash.com/photo-1614359835514-92f8ba196357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" %>
   <div class="text">
-    <h2 class="welcome">Welcome to the best move of your life</h2>
+    <h1 class="welcome">Welcome to Easy MoveIn</h1>
+    <h2 class="welcome2">We make moving fun!</h2>
+    <h2 class="welcome3">
+   "Easy moveIn changed my life" ☆☆☆☆☆ - The Daily Condor
+   <h2 class="welcome4">
+   "Everything is easy" ☆☆☆☆☆ - Der Kicherfaktor
+   </h2>
+   <h2 class="welcome5">
+   "My life is solved" ☆☆☆☆☆ - Le Fourgon
+   </h2>
+    </h2>
   </div>
 </div>
 <div id="homeform" class="container">
   <%= form_with(id: 'form') do |form| %>
     <div id="page1" class="page">
-      <h2>Tell us When? </h2>
+      <h2>Tell us? </h2>
       <div class="input-container">
-        <%# <i class="fa-solid fa-calendar" style="color: #f66b0e;">&nbsp;&nbsp;</i> %>
+        <label for="dateInput">When?</label>
         <%= form.date_field :date %>
-        <%# <%= form.text_field :date, required: true, class: 'date-input', placeholder: '    When?' %>
-        <label for="dateInput"></label>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-location-dot" style="color: #f66b0e;"></i>
-        <%= form.text_field :start_point, required: true, placeholder: '    From where?' %>
-        <label for="startPointInput"></label>
+        <label for="startPointInput">Start point</label>
+        <%= form.text_field :start_point, required: true, placeholder: 'From where?' %>
       </div>
       <div class="input-container">
-        <i class="fa-solid fa-location-pin" style="color: #f66b04;"></i>
-        <%= form.text_field :end_point, required: true, placeholder: '    To where?' %>
-        <label for="endPointInput"></label>
+        <i class="fa-solid fa-map-pin" style="color: #f66b0e;"></i>
+        <label for="endPointInput">Destination</label>
+        <%= form.text_field :end_point, required: true, placeholder: 'To where?' %>
       </div>
       <button id="nextBtn1" class="small_button" type="button">Next</button>
     </div>
     <div id="page2" class="page">
       <h2>..And what will you be moving?</h2>
+      <%= image_tag "https://images.unsplash.com/photo-1479888230021-c24f136d849f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", class: "loginimage" %>
       <div class="input-container">
-        <%= form.text_area :shipment_info, required: true, placeholder: '' %>
-       <%= link_to new_user_session_path, class: "shithead small_button" do %>
-       Submit
-       <% end %>
+        <%= form.text_area :shipment_info, required: true, placeholder: ' Boots, Tables, and lots of Goats' %>
+        <%= link_to new_user_session_path, class: "shithead small_button" do %>
+          Submit
+        <% end %>
         <button id="prevBtn1" class="small_button" type="button">Previous</button>
       </div>
     </div>

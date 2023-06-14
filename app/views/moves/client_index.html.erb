@@ -4,32 +4,141 @@
 <div class="container d-flex justify-content-center">
   <h1 class="moves-text">My published moves</h1>
 </div>
-<div class="movescard" id="client-index">
+<div class="container d-flex justify-content-center mt-5 mb-5">
+  <h2>Hello <%= @user.nickname %> !</h2>
+</div>
+<% if @moves %>
+<div class="container d-flex justify-content-center">
+  <h5>Here are your published moves.</h5>
+</div>
+<div class="container d-flex justify-content-center">
+  <h5>Check their status for the follow up!</h5>
+</div>
+
+<h2 style="margin: 65px;">Here is your next move!</h2>
+<div class="container jusfify-content-center d-flex">
+  <div class="small-card mb-5 card popup" style="width: 540px;margin-left: 65px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= @next_move.id %>">
+      <div class="status-icon">
+        <%if @next_move.status == "open"%>
+        <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= @next_move.status %></h6>
+        <%elsif @next_move.status = "pending"%>
+          <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= @next_move.status %> </h6>
+        <%elsif @next_move.status = "confirmed"%>
+          <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= @next_move.status %></h6>
+        <%end%>
+      </div>
+      <%= link_to move_path(@next_move.id), data:{}, style:"text-decoration:none;", title: "show this @next_move" do %>
+        <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+          <%= @next_move.date.strftime("%d %b %Y") %></h5>
+        <br>
+        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+          <%= @next_move.date.strftime("%l:%m %p") %></h5>
+        <br><h6>from</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+          <%= @next_move.start_point %></h5>
+        <br><h6 class="ml-1" >to</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= @next_move.end_point %></h5>
+      <% end %>
+      <br>
+      <div class="d-flex justify-content-between">
+          <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+          <%= link_to "Edit", edit_move_path(@next_move.id), class: "small_button" %>
+      </div>
+      <div id="<%= @next_move.id %>" class="d-none">
+        <%= render "show", move: @next_move %>
+      </div>
+  </div class="info mt-5 ">
+  <% if @next_move.status=="open" %>
+  <div style="width: 540px;padding: 122px;margin-left: 65px;">
+    Your move is now published. Wait for companies to bid on it! Review the bids and hire the best company.
+  </div>
+  <% elsif @next_move.status=="pending" %>
+  <div style="width: 540px;padding: 122px;margin-left: 65px;">
+    You have now hired a company for your move. Now wait for the company to confirm that they are still available on that date!
+  </div>
+   <% else %>
+  <div style="width: 540px;padding: 122px;margin-left: 65px;">
+    The company has confirmed your move! Now relax and let them come pick up your stuff!
+  </div>
+  <%end  %>
+</div>
+
+
+
+<h2 style="margin: 65px;">Here are your other moves!</h2>
+<div class="container d-flex flex-wrap justify-content-between" >
   <% @moves.each do |move| %>
-    <div class="card" data-controller="popup" data-popup-id-value="<%= move.id %>">
-      <div id="indexcard" class="card-body">
-        <div class="d-flex align-items-center">
-          <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-          <h5 id="indexcard" class="card-title"><%=move.date.strftime("%d %b %Y %l:%m %p") %></h5>
-        </div>
-        <div class="d-flex align-items-center">
-          <i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i>
-          <h5 id="indexcard" class="card-text"><%= move.start_point %></h5>
-        </div>
-        <div class="d-flex align-items-center">
-          <i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i>
-          <h5 id="indexcard" class="card-text"><%= move.end_point %></h5>
-        </div>
-        <div class="d-flex justify-content-between">
+
+    <div class="small-card mb-5 card popup" style="width: 540px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= move.id %>">
+      <div class="status-icon">
+        <%if move.status == "open"%>
+        <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
+        <%elsif move.status = "pending"%>
+          <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= move.status %> </h6>
+        <%elsif move.status = "confirmed"%>
+          <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
+        <%end%>
+      </div>
+      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
+        <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%d %b %Y") %></h5>
+        <br>
+        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%l:%m %p") %></h5>
+        <br><h6>from</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+          <%= move.start_point %></h5>
+        <br><h6 class="ml-1" >to</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+      <% end %>
+      <br>
+      <div class="d-flex justify-content-between">
           <a href="#" data-action="click->popup#open" class="small_button">See details</a>
           <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
-          <%= link_to "", move_path(move.id), class: "order-3 btn btn-outline-danger text-light fa-solid fa-trash-can pt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
-      </div>
-    </div>
     <div id="<%= move.id %>" class="d-none">
       <%= render "show", move: move %>
     </div>
+
+    </div>
   <% end %>
 </div>
-<div class="filler-text"></div>
+
+
+<div class="container d-flex flex-wrap justify-content-between" >
+  <% @moves.each do |move| %>
+    <div class="small-card mb-5 card popup" style="width: 540px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= move.id %>">
+      <div class="status-icon">
+        <%if move.status == "open"%>
+        <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
+        <%elsif move.status = "pending"%>
+          <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= move.status %> </h6>
+        <%elsif move.status = "confirmed"%>
+          <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
+        <%end%>
+      </div>
+      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
+        <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%d %b %Y") %></h5>
+        <br>
+        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%l:%m %p") %></h5>
+        <br><h6>from</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+          <%= move.start_point %></h5>
+        <br><h6 class="ml-1" >to</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+      <% end %>
+      <br>
+      <div class="d-flex justify-content-between">
+          <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+          <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
+        </div>
+    <div id="<%= move.id %>" class="d-none">
+      <%= render "show", move: move %>
+    </div>
+
+    </div>
+  <% end %>
+</div>
+<%end %>

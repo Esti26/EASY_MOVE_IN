@@ -1,0 +1,15 @@
+  <div class="low-container">
+    <div class="left-container">
+      <div class="move-grid" id="move-grid">
+       <%= render "results", moves: @moves %>
+      </div>
+    </div>
+    <div class="right-container"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-controller="map"
+      data-action="search:update@window->map#updateMap"
+      data-map-markers-value="<%= @markers.to_json %>"
+      id='map'
+      style='width: 540px; height: 735px;'>
+    </div>
+  </div>

@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex " style= "hight: 100vh;">
+<div class="container-fluid d-flex " style= "hight: 100vh;" id="login">
   <div id="reg-img-div"class="container col-9">
   </div>
   <div class="container col-3 d-flex justify-content-center align-items-center">
@@ -11,7 +11,7 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email", class: "email" }%>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
