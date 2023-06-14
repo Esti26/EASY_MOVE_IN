@@ -39,6 +39,7 @@ class MovesController < ApplicationController
 
   def client_index
     @moves = Move.where(client_id: current_user)
+    @user = User.find(current_user.id)
   end
 
   def company_index
