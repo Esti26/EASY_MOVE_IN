@@ -15,6 +15,8 @@
   <h5>Check their status for the follow up!</h5>
 </div>
 
+<% if @next_move %>
+
 <h2 style="margin: 65px;">Here is your next move!</h2>
 <div class="container jusfify-content-center d-flex">
   <div class="small-card mb-5 card popup" style="width: 540px;margin-left: 65px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= @next_move.id %>">
@@ -67,9 +69,12 @@
   </div>
   <%end  %>
 </div>
+<% else %>
+<h2 style="margin: 65px;">You have no moves yet! add a move!</h2>
+<% end %>
 
 
-
+<% if @moves %>
 <h2 style="margin: 65px;">Here are your other moves!</h2>
 <div class="container d-flex flex-wrap justify-content-between" >
   <% @moves.each do |move| %>
@@ -113,4 +118,5 @@
     </div>
   <% end %>
 </div>
+<%end %>
 <%end %>
