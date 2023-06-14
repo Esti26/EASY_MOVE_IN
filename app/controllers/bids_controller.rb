@@ -1,12 +1,11 @@
 class BidsController < ApplicationController
   def index
-
     if @company = Company.find_by(user_id: current_user.id)
       @bids = Bid.where(company_id: @company.id)
     else
       @move = Move.find(params[:move_id])
       @bids = Bid.where(move_id: @move.id)
-      @hired = @move.status =="pending" && @bids.where(status: "pending").count == 1
+      @hired = @move.status == "pending" && @bids.where(status: "pending").count == 1
 
     end
 
