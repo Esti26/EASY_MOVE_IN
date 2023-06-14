@@ -6,23 +6,27 @@
     <h1 class="welcome">Welcome to Easy MoveIn</h1>
     <h2 class="welcome2">We make moving fun!</h2>
     <h2 class="welcome3">
-   "Easy moveIn changed my life" ☆☆☆☆☆ - The Daily Condor
-   <h2 class="welcome4">
-   "Everything is easy" ☆☆☆☆☆ - Der Kicherfaktor
-   </h2>
-   <h2 class="welcome5">
-   "My life is solved" ☆☆☆☆☆ - Le Fourgon
-   </h2>
+      "Easy moveIn changed my life" ☆☆☆☆☆ - The Daily Condor
+      <h2 class="welcome4">
+        "Everything is easy" ☆☆☆☆☆ - Der Kicherfaktor
+      </h2>
+      <h2 class="welcome5">
+        "My life is solved" ☆☆☆☆☆ - Le Fourgon
+      </h2>
     </h2>
   </div>
 </div>
 <div id="homeform" class="container">
   <%= form_with(id: 'form') do |form| %>
     <div id="page1" class="page">
-      <h2>Tell us? </h2>
+      <h2>Tell us.. </h2>
       <div class="input-container">
         <label for="dateInput">When?</label>
         <%= form.date_field :date %>
+        <div class="input-container">
+          <label for="timeInput">What time?</label>
+          <%= form.time_select :time, { include_blank: true }, { class: 'time-input' } %>
+        </div>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-location-dot" style="color: #f66b0e;"></i>
