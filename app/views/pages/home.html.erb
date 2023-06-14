@@ -9,10 +9,10 @@
 <div id="homeform" class="container">
   <%= form_with(id: 'form') do |form| %>
     <div id="page1" class="page">
-      <h2>Tell us When? </h2>
+      <h2>Tell us? </h2>
       <div class="input-container">
-        <%# <i class="fa-solid fa-calendar" style="color: #f66b0e;">&nbsp;&nbsp;</i> %>
-        <%= form.date_field :date %>
+        <i class="fa-solid fa-calendar" style="color: #f66b0e;">&nbsp;&nbsp;</i>
+        <%= form.text_field :date, "data-controller": "datepicker", placeholder: '      When?' %>
         <%# <%= form.text_field :date, required: true, class: 'date-input', placeholder: '    When?' %>
         <label for="dateInput"></label>
       </div>
