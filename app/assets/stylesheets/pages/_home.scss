@@ -3,13 +3,11 @@
   display: flex;
   justify-content: center;
   z-index: 2;
-  // margin-top: -15px;
 
   img {
     height: 100vh;
     width: 100vw;
     object-fit: cover;
-    // margin-top: -15px;
   }
 }
 
@@ -116,10 +114,10 @@ h1 {
 
 #homeform {
   position: absolute;
-  top: 30%;
+  top: 27%;
   right: 10%;
   width: 450px;
-  height: 450px;
+  height: 500px;
   padding: 20px;
   background-color: #f9f9f9;
   z-index: 9999;
@@ -238,4 +236,25 @@ h2 {
   margin-left: 5px;
   border-radius: 40px;
   ;
+}
+
+
+.time-input select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #555;
+}
+
+.time-input select option {
+  color: #555;
+}
+
+.time-input label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555;
 }
