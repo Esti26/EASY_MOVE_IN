@@ -31,11 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-
     nextBtns.addEventListener('click', navigateToNextPage);
-
-
-
     prevBtns.addEventListener('click', navigateToPrevPage);
 
 });

@@ -3,10 +3,7 @@
  <%if move.status = "open"%>
     <div class="small-card mb-5" id="card-div">
       <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
-        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
-          <%= move.date.strftime("%l:%m %p") %></h5>
           <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
-
         <br><h6>from</h6>
         <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
           <%= move.start_point %></h5>

@@ -19,7 +19,7 @@ export default class extends Controller {
     if (filterForm) {
       filterForm.addEventListener("change", (event) => {
         event.preventDefault(); // Prevent the default form submission
-        const query = searchForm ? searchForm.value : null;
+        const query = document.querySelector("#query").value
         const filter = filterForm.querySelector("#search_query_filter").value;
         this.searchMoves(query, filter);
       });
