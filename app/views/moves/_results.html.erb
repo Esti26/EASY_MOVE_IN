@@ -2,7 +2,11 @@
 <% moves.each do |move| %>
   <%if move.status = "open"%>
     <div class="small-card mb-5" id="card-div" data-controller="popup" data-popup-id-value="<%= move.id %>">
-      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
+      <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #F66B0E"></i>
+            <%= move.date.strftime("%d %b %Y") %></h5>
+            <br>
+          <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #F66B0E"></i>
+            <%= move.date.strftime("%l:%m %p") %></h5>
       <br>
       <h6>from</h6>
       <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>

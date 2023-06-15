@@ -2,10 +2,9 @@ class MovesController < ApplicationController
   before_action :set_move, only: %i[show edit update destroy]
 
   def show
-    @current_user = current_user
     @move = Move.find(params[:id])
     @moves = Move.all
-    @next_move = @moves.where("date > ?", Time.now).first
+    @next_move = Move.where(client_id: current_user.id).order(date: :asc).last
   end
 
   def new
@@ -14,6 +13,22 @@ class MovesController < ApplicationController
 
   def create
     @move = Move.new(move_params)
+    @move.client_id = current_user.id
+    @move.status = "open"
+    if @move.save
+      redirect_to client_path, notice: 'moves was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def create_home
+    @move = Move.new(
+      date: params[:date],
+      start_point: params[:start_point],
+      end_point: params[:end_point],
+      shipment_info: params[:shipment_info]
+)
     @move.client_id = current_user.id
     @move.status = "open"
     if @move.save

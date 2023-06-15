@@ -14,7 +14,7 @@
             <% end %>
           </div>
           <div>
-            <% if !@next_move.nil? %>
+            <% if !@next_move.nil? & Client.find_by(user_id: current_user.id)%>
               <%= link_to  move_path(@next_move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
                 <i class="fa-solid fa-times"></i>
               <% end %>
