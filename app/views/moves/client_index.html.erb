@@ -25,9 +25,9 @@
           <div class="status-icon mb-3">
             <%if @next_move.status == "open"%>
               <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= @next_move.status %></h6>
-            <%elsif @next_move.status = "pending"%>
+            <%elsif @next_move.status == "pending"%>
               <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= @next_move.status %> </h6>
-            <%elsif @next_move.status = "confirmed"%>
+            <%else%>
               <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= @next_move.status %></h6>
             <%end%>
           </div>
@@ -84,9 +84,9 @@
             <div class="status-icon mb-3">
               <%if move.status == "open"%>
                 <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= move.status %></h6>
-              <%elsif move.status = "pending"%>
+              <%elsif move.status == "pending"%>
                 <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= move.status %> </h6>
-              <%elsif move.status = "confirmed"%>
+              <%else %>
                 <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= move.status %></h6>
               <%end%>
             </div>
