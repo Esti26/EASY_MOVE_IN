@@ -22,7 +22,7 @@
         <div id="<%= move.id %>" class="d-none">
           <%= render "show", move: move %>
         </div>
-        <div><%= link_to "", new_chatroom_path, class: "btn fa-solid fa-envelope" %></div>
+        <div class="envelope"><%= link_to "", new_chatroom_path, class: "btn fa-solid fa-envelope" %></div>
         <% company = Company.find_by(user_id: current_user) %>
         <% if bid = move.bids.find_by(company_id: company) %>
           <div>
