@@ -13,11 +13,11 @@ export default class extends Controller {
 
      fetch("/update_bid_status", {
           method: "POST",
-          body: JSON.stringify({ id: this.bididTarget.dataset.bid }),
+          body: JSON.stringify({ id: event.target.dataset.bid }),
           headers: { "Content-Type": "application/json" }
         }).then(r => r.text())
         .then(html => {
-          this.element.outerHTML = html;
+          this.element.innerHTML = html;
           location.reload();
         });
   }
