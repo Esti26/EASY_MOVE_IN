@@ -9,6 +9,8 @@ export default class extends Controller {
 
   update(event) {
     event.preventDefault()
+    event.stopImmediatePropagation();
+
      fetch("/update_bid_status", {
           method: "POST",
           body: JSON.stringify({ id: this.bididTarget.dataset.bid }),

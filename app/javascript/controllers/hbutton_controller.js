@@ -5,6 +5,8 @@ export default class extends Controller {
 
   hire(event) {
     event.preventDefault();
+    event.stopImmediatePropagation();
+
     const button = event.target;
 
     // Make the AJAX request to update the bid and move

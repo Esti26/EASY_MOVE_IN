@@ -1,24 +1,6 @@
 <% if Company.find_by(user_id: current_user.id) %>
 
-  <div class="container col-4 d-flex justify-content-center" data-controller="filter">
-    <div class="col-6">
-      <form novalidate="novalidate" class="filter-form simple_form" action="/bids" accept-charset="UTF-8" method="get">
-        <select class="form-control string required" type="text" name="query" id="search_query" data-target="filter.select">
-          <option value="rating">rating</option>
-          <option value="price">price</option>
-        </select>
-        <div>
-          <button name="button" type="submit" class="btn btn-flat" data-action="filter#applyFilter">
-            <i class="fa-solid fa-filter"></i>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <h1 class="bids-text">Here's your bid, Mr. <%= current_user.last_name %> 💰</h1>
-
 <%=  render "company_bids", bids: @bids %>
-
 
 <% elsif Client.find_by(user_id: current_user.id) && @move.bids.present?%>
     <div class="container col-4 d-flex justify-content-center" data-controller="filter">
