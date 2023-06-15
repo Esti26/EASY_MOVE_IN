@@ -2,15 +2,21 @@
 <div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
 <% moves.each do |move| %>
   <%if move.status = "open"%>
-    <div class="small-card mb-5" id="card-div" data-controller="popup" data-popup-id-value="<%= move.id %>">
-      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
-      <br>
-      <h6>from</h6>
-      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
-        <%= move.start_point %></h5>
-      <br>
-      <h6 class="ml-1" >to</h6>
-      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+
+    <div class="small-card mb-5" id="card-div">
+      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
+           <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%d %b %Y") %></h5>
+        <br>
+        <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+          <%= move.date.strftime("%l:%m %p") %></h5>
+        <h6>from</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+          <%= move.start_point %></h5>
+        <br><h6 class="ml-1" >to</h6>
+        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+      <% end %>
+
       <br>
       <div class="link-container justify-content-between d-flex">
         <div><a href="#" data-action="click->popup#open" class="small_button">See details</a></div>
