@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <h1 class="bids-text">My recieved bids</h1>
+  <h1 class="bids-text">My bids</h1>
   <div class="container-full" id="client-index">
     <div  data-controller="tabs" data-tabs-default-tab-value="two">
       <button id="one" class="small_button card-tab" data-tabs-target="btn " data-action="click->tabs#select">open</button>
@@ -41,6 +41,9 @@
                   <h5 id="indexcard" class="card-text"><i class="iconmove fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= @rating = "⭐" * rand(1..5) %></h5>
                   <div class="d-flex justify-content-between" >
                     <a href="#" data-action="click->popup#open" class="small_button">contact the client</a>
+                                        <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+
+
                   </div>
                 </div>
               </div>

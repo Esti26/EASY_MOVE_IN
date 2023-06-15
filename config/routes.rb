@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/clients", to: "moves#client_index", as: "client"
   get "/companies", to: "moves#company_index", as: "company"
   get "/companies/bids", to: "bids#index", as: "company_bids"
+  post "/update_bid_status", to: "bids#update_bid_status"
 
   resources :company do
     resources :reviews, only: %i[new create edit delete update]
