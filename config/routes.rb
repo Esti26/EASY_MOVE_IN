@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "/create", to: "moves#create_home"
   resources :moves do
-    resources :bids, only: %i[new edit update delete create index]
+    resources :bids, only: %i[new edit update  create index]
   end
   resources :bids, only: [:show]
 
@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: %i[new create show] do
     resources :messages, only: :create
   end
+      resources :bids, only: %i[ delete]
+
 end

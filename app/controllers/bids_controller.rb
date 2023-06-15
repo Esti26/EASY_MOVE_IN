@@ -25,7 +25,6 @@ class BidsController < ApplicationController
   end
 
   def hire
-
     @bid = Bid.find(params[:id])
     @move = @bid.move
     # Perform the necessary updates here
