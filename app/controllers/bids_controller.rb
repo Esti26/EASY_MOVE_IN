@@ -33,7 +33,7 @@ class BidsController < ApplicationController
 
     @bid.status = "pending"
 
-    if @move.save && @bid.save
+    if @move.save! && @bid.save!
       redirect_to client_path, notice: "Bid hired successfully!"
     end
   end
@@ -42,7 +42,11 @@ class BidsController < ApplicationController
     # @move = Move.find(params[:move_id])
     @bid = Bid.find(params[:id])
     move = @bid.move
-    if @bid.status == "pending" && move.status == "pending"
+
+    p @bid.to_json
+    p move.to_json
+
+    if @bid.status == "pending"
       @bid.status = "confirmed"
       move.status = "confirmed"
       move.save!
