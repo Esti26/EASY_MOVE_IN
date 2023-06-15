@@ -17,6 +17,7 @@ export default class extends Controller {
   }
 
   select(event) {
+    event.stopImmediatePropagation();
     // find tab with same id as clicked btn
     let selectedTab = this.tabTargets.find(element => element.id === event.currentTarget.id)
     if (selectedTab.hidden) {

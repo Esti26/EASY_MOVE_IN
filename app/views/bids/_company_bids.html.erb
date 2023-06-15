@@ -1,33 +1,33 @@
 <div class="container col-4 d-flex justify-content-center" data-controller="filter">
-    <div class="col-6">
-      <form novalidate="novalidate" class="filter-form simple_form" action="/bids" accept-charset="UTF-8" method="get">
-        <select class="form-control string required" type="text" name="query" id="search_query" data-target="filter.select">
-          <option value="rating">rating</option>
-          <option value="price">price</option>
-        </select>
-        <div>
-          <button name="button" type="submit" class="btn btn-flat" data-action="filter#applyFilter">
-            <i class="fa-solid fa-filter"></i>
-          </button>
-        </div>
-      </form>
-    </div>
+  <div class="col-6">
+    <form novalidate="novalidate" class="filter-form simple_form" action="/bids" accept-charset="UTF-8" method="get">
+      <select class="form-control string required" type="text" name="query" id="search_query" data-target="filter.select">
+        <option value="rating">rating</option>
+        <option value="price">price</option>
+      </select>
+      <div>
+        <button name="button" type="submit" class="btn btn-flat" data-action="filter#applyFilter">
+          <i class="fa-solid fa-filter"></i>
+        </button>
+      </div>
+    </form>
   </div>
 
-  <h1 class="bids-text">My bids</h1>
+
+  <h1 class="bids-text">My recieved bids</h1>
   <div class="container-full" id="client-index">
     <div  data-controller="tabs" data-tabs-default-tab-value="two">
       <button id="one" class="small_button card-tab" data-tabs-target="btn " data-action="click->tabs#select">open</button>
       <button id="two" class="small_button " data-tabs-target="btn " data-action="click->tabs#select">pending</button>
       <button id="abc" class="small_button " data-tabs-target="btn " data-action="click->tabs#select">confirmed</button>
       <div  class="container-full">
+
         <div data-tabs-target="tab" id="one" >
           <div class="movescard" id="client-index" data-controller="hbutton">
-            <% bids.where(status: "open").each do |bid|%>
-              <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
-                <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %></h5>
+            <% @bids.where(status: "open").each do |bid|%>
 
+              <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
+               <div id="indexcard" class="card-body">
                   <div class="status-icon">
                     <%if bid.status == "open"%>
                     <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
@@ -37,107 +37,186 @@
                       <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
                     <%end%>
                   </div>
-                 <div id="indexcard" class="card-body">
-                          <% bid.move.bids.where(company_id: @company) %>
-                        </div>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%d %b %Y") %>
-                          </span>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%l:%m %p") %>
-                          </span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= bid.move.start_point %></span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= bid.move.end_point %></span>
-                        </div>
-                      </div>
+                  <div id="indexcard" class="card-body">
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%d %b %Y") %>
+                    </h6>
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%l:%m %p") %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;">
+                      </i> From: <%= bid.move.start_point %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;">
+                      </i> To: <%= bid.move.end_point %>
+                    </h6>
+                  </div>
                 </div>
               </div>
+
               <div id="<%= bid.id%>" class="d-none">
                 <%= render "bids_show", bid: bid %>
               </div>
+
             <% end %>
           </div>
         </div>
+
         <div data-tabs-target="tab" id="two">
-              <div class="movescard" id="client-index">
-                <% bids.where(status: "pending").each do |bid|%>
-                <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
-                <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
-                    <div class="status-icon">
-                      <%if bid.status == "open"%>
-                      <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
-                      <%elsif bid.status = "pending"%>
-                        <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
-                      <%elsif bid.status = "confirmed"%>
-                        <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
-                      <%end%>
-                    </div>
-                  </h5>
-                   <div id="indexcard" class="card-body">
-                          <% bid.move.bids.where(company_id: @company) %>
-                        </div>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%d %b %Y") %>
-                          </span>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%l:%m %p") %>
-                          </span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= bid.move.start_point %></span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= bid.move.end_point %></span>
-                        </div>
-                      </div>
-              </div>
-              <div id="<%= bid.id%>" class="d-none">
-                <%= render "bids_show", bid: bid %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        </div>
-        <div data-tabs-target="tab" id="abc">
-              <div class="movescard" id="client-index">
-                <% bids.where(status: "confirmed").each do |bid|%>
+          <div class="movescard" id="client-index">
+            <% @bids.where(status: "pending").each do |bid|%>
               <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
                 <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
-                    <div class="status-icon">
-                      <%if bid.status == "open"%>
-                      <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
-                      <%elsif bid.status = "pending"%>
-                        <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
-                      <%elsif bid.status = "confirmed"%>
-                        <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
-                      <%end%>
-                    </div>
-                  </h5>
-                      <div id="indexcard" class="card-body">
-                          <% bid.move.bids.where(company_id: @company) %>
-                        </div>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%d %b %Y") %>
-                          </span>
-                          <span id="showcards" class="card-title">
-                            <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
-                            <%= bid.move.date.strftime("%l:%m %p") %>
-                          </span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= bid.move.start_point %></span>
-                          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= bid.move.end_point %></span>
-                        </div>
+                  <div class="status-icon">
+                    <%if bid.status == "open"%>
+                    <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
+                    <%elsif bid.status = "pending"%>
+                      <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
+                      <div class="d-flex">
+                        <h2><%= bid.price %> €</h2>
                       </div>
+                    <%elsif bid.status = "confirmed"%>
+                      <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+                    <%end%>
+                  </div>
+                  <div id="indexcard" class="card-body">
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%d %b %Y") %>
+                    </h6>
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%l:%m %p") %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;">
+                      </i> From: <%= bid.move.start_point %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;">
+                      </i> To: <%= bid.move.end_point %>
+                    </h6>
+                  </div>
                 </div>
               </div>
               <div id="<%= bid.id%>" class="d-none">
                 <%= render "bids_show", bid: bid %>
+
               </div>
-            <% end %>
+            </div>
           </div>
+        </div>
+
+        <div data-tabs-target="tab" id="abc">
+          <div class="movescard" id="client-index">
+            <% @bids.where(status: "confirmed").each do |bid|%>
+              <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
+                <div id="indexcard" class="card-body">
+                  <div class="status-icon">
+                    <%if bid.status == "open"%>
+                    <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
+                    <%elsif bid.status = "pending"%>
+                      <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
+                    <%elsif bid.status = "confirmed"%>
+                      <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+                    <%end%>
+                  </div>
+                  <div id="indexcard" class="card-body">
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%d %b %Y") %>
+                    </h6>
+                    <h6 id="showcards" class="card-title">
+                      <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
+                      <%= bid.move.date.strftime("%l:%m %p") %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;">
+                      </i> From: <%= bid.move.start_point %>
+                    </h6>
+                    <h6 id="showcards" class="card-text">
+                      <i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;">
+                      </i> To: <%= bid.move.end_point %>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div id="<%= bid.id%>" class="d-none">
+                <%= render "bids_show", bid: bid %>
+
+              </div>
+            </h5>
+            <div id="indexcard" class="card-body">
+              <% bid.move.bids.where(company_id: @company) %>
+            </div>
+            <span id="showcards" class="card-title">
+              <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+              <%= bid.move.date.strftime("%d %b %Y") %>
+            </span>
+            <span id="showcards" class="card-title">
+              <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
+              <%= bid.move.date.strftime("%l:%m %p") %>
+            </span>
+            <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= bid.move.start_point %></span>
+            <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= bid.move.end_point %></span>
+            <div class="d-flex justify-content-between" >
+                    <%= button_to "Confirm", confirm_bid_path(bid.move_id, bid.id), method: :patch, class: "small_button_goal", data: { action: "click->bid-hiring#hire" } %>
+                </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div id="<%= bid.id%>" class="d-none">
+        <%= render "bids_show", bid: bid %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+<div data-tabs-target="tab" id="abc">
+  <div class="movescard" id="client-index">
+    <% bids.where(status: "confirmed").each do |bid|%>
+      <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
+        <div id="indexcard" class="card-body">
+          <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
+            <div class="status-icon">
+              <%if bid.status == "open"%>
+                <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
+              <%elsif bid.status = "pending"%>
+                <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
+              <%elsif bid.status = "confirmed"%>
+                <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+              <%end%>
+            </div>
+          </h5>
+          <div id="indexcard" class="card-body">
+            <% bid.move.bids.where(company_id: @company) %>
+          </div>
+          <span id="showcards" class="card-title">
+            <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
+            <%= bid.move.date.strftime("%d %b %Y") %>
+          </span>
+          <span id="showcards" class="card-title">
+            <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
+            <%= bid.move.date.strftime("%l:%m %p") %>
+          </span>
+          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= bid.move.start_point %></span>
+          <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= bid.move.end_point %></span>
         </div>
       </div>
     </div>
   </div>
+  <div id="<%= bid.id%>" class="d-none">
+    <%= render "bids_show", bid: bid %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>

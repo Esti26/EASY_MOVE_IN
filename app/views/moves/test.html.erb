@@ -91,8 +91,8 @@
             <%end%>
           </div>
           <%= link_to  move_path(@next_move.id), class: "delete-button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <i class="fa-solid fa-times"></i>
-            <% end%>
+            <i class="fa-solid fa-times"></i>
+          <% end%>
     </div>
       <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
         <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
@@ -120,7 +120,3 @@
 </div>
 <%end %>
 <%end %>
-
-
-
-
