@@ -1,16 +1,17 @@
- <div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
- <% moves.each do |move| %>
- <%if move.status = "open"%>
-    <div class="small-card mb-5" id="card-div">
-      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
-          <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
-        <br><h6>from</h6>
-        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
-          <%= move.start_point %></h5>
-        <br><h6 class="ml-1" >to</h6>
-        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
-      <% end %>
+<div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
+<% moves.each do |move| %>
+  <%if move.status = "open"%>
+    <div class="small-card mb-5" id="card-div" data-controller="popup" data-popup-id-value="<%= move.id %>">
+      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
       <br>
+      <h6>from</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+        <%= move.start_point %></h5>
+      <br>
+      <h6 class="ml-1" >to</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
+      <br>
+
       <div class="link-container justify-content-between d-flex" data-controller="popup" data-popup-id-value="<%= move.id %>">
        <div class="d-flex justify-content-between">
           <a href="#" data-action="click->popup#open" class="small_button">See details</a>
@@ -18,6 +19,7 @@
           <div id="<%= move.id %>" class="d-none">
           <%= render "show", move: move %>
         </div>
+
         <div><%= link_to "", new_chatroom_path, class: "btn fa-solid fa-envelope" %></div>
         <% company = Company.find_by(user_id: current_user) %>
         <% if bid = move.bids.find_by(company_id: company) %>
@@ -38,5 +40,8 @@
         <% end %>
       </div>
     </div>
-    <%end%>
-  <% end %>
+    <div id="<%= move.id %>" class="d-none">
+          <%= render "bids_move_detail", move: move %>
+    </div>
+  <%end%>
+<% end %>

@@ -16,6 +16,7 @@
     </div>
   </div>
 
+
   <h1 class="bids-text">Here's your bid, Mr. <%= current_user.last_name %> 💰</h1>
 
 
@@ -43,8 +44,8 @@
 
 
 
-<% elsif Client.find_by(user_id: current_user.id) && @move.bids.present?%>
 
+<% elsif Client.find_by(user_id: current_user.id) && @move.bids.present?%>
     <div class="container col-4 d-flex justify-content-center" data-controller="filter">
     <div class="col-6">
       <form novalidate="novalidate" class="filter-form simple_form" action="/bids" accept-charset="UTF-8" method="get">

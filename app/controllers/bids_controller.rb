@@ -1,4 +1,7 @@
 class BidsController < ApplicationController
+
+  skip_forgery_protection
+
   def index
     if @company = Company.find_by(user_id: current_user.id)
       @bids = Bid.where(company_id: @company.id)
@@ -23,15 +26,35 @@ class BidsController < ApplicationController
   end
 
   def hire
-    @move = Move.find(params[:move_id])
-    @bid = @move.bids.find(params[:id])
 
+    @bid = Bid.find(params[:id])
+    @move = @bid.move
+    # Perform the necessary updates here
+    # For example:
     @move.status = "pending"
 
     @bid.status = "pending"
 
     if @move.save && @bid.save
       redirect_to client_path, notice: "Bid hired successfully!"
+    end
+  end
+
+  def update_bid_status
+    # @move = Move.find(params[:move_id])
+    @bid = Bid.find(params[:id])
+    move = @bid.move
+    if @bid.status == "pending" && move.status == "pending"
+      @bid.status = "confirmed"
+      move.status = "confirmed"
+      move.save!
+      @bid.save!
+    end
+    @bids = Bid.where(move_id: move.id)
+
+    respond_to do |format|
+      format.html
+      format.text {render partial: "bids/bids", locals: { bids: @bids}, formats: [:html]}
     end
   end
 

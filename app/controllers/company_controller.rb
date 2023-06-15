@@ -3,8 +3,9 @@ class CompanyController < ApplicationController
   before_action :set_bid, only: %i[edit update destroy]
 
   def show
-    @company = Company.find(params[:id])
     @reviews = Review.where(company_id: params[:id])
+    @company = Company.find_by(user_id: current_user.id)
+    @bids = Bid.where(company_id: @company.id)
   end
 
   def new

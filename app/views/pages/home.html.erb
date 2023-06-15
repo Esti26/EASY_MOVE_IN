@@ -8,7 +8,7 @@
     <h2 class="welcome3">
       "Easy moveIn changed my life" ☆☆☆☆☆ - The Daily Condor
       <h2 class="welcome4">
-        "Everything is easy" ☆☆☆☆☆ - Der Kicherfaktor
+        "Everything is easy" ☆☆☆☆☆ - Der Kicherblatt
       </h2>
       <h2 class="welcome5">
         "My life is solved" ☆☆☆☆☆ - Le Fourgon
@@ -42,8 +42,10 @@
       <%= image_tag "https://images.unsplash.com/photo-1479888230021-c24f136d849f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", class: "loginimage" %>
       <div class="input-container">
         <%= form.text_area :shipment_info, required: true, placeholder: ' Boots, Tables, and lots of Goats' %>
-        <%= form.submit class: "shithead small_button" %>
-        <button id="prevBtn1" class="small_button" type="button">Previous</button>
+        <div class="buttons">
+          <a id="prevBtn1" class="small_button" type="button">Previous</a>
+          <%= form.submit "Continue", class: "small_button_goal" %>
+        </div>
       </div>
     </div>
   <% end %>
