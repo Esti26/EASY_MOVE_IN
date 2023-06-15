@@ -2,20 +2,23 @@
   <%= link_to "Add a new move", new_move_path, class: "small_button" %>
 </div>
 <div class="container d-flex justify-content-center">
-  <h1 class="moves-text">My published moves</h1>
+  <h1 class="moves-text">My  Moves</h1>
 </div>
-<div class="container d-flex justify-content-center mt-5 mb-5">
-  <h2>Hello <%= @user.nickname %> !</h2>
+<div class="container d-flex justify-content-center mt-5">
+  <h2>Good afternoon, <%= @user.first_name %>! 👋</h2>
+</div>
+<div class="container d-flex justify-content-center mb-5">
+  <h2>Let's get it Movin'</h2>
 </div>
 <% if @moves %>
   <div class="container d-flex justify-content-center">
-    <h5>Here are your published moves.</h5>
+    <h5>This is where your Moves live.</h5>
   </div>
   <div class="container d-flex justify-content-center">
-    <h5>Check their status for the follow up!</h5>
+    <h5>Don't forget to check their status!</h5>
   </div>
   <% if @next_move %>
-    <h2 style="margin: 65px;">Here is your next move!</h2>
+    <h2 style="margin: 65px;">Next Move Coming Up:</h2>
     <div class="container jusfify-content-center d-flex">
       <div class="small-card mb-5 card popup" style="width: 540px;margin-left: 65px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= @next_move.id %>">
         <div class="container d-flex" style="justify-content: space-between;">
@@ -32,7 +35,7 @@
             <i class="fa-solid fa-times"></i>
           <% end%>
         </div>
-        <%= link_to move_path(@next_move.id), data:{}, style:"text-decoration:none;", title: "show this @next_move" do %>
+
           <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
             <%= @next_move.date.strftime("%d %b %Y") %></h5>
           <br>
@@ -45,7 +48,7 @@
           <br>
           <h6 class="ml-1" >to</h6>
           <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= @next_move.end_point %></h5>
-        <% end %>
+
         <br>
         <div class="d-flex justify-content-between">
           <a href="#" data-action="click->popup#open" class="small_button">See details</a>
@@ -73,7 +76,7 @@
     <h2 style="margin: 65px;">You have no moves yet! add a move!</h2>
   <% end %>
   <% if @moves %>
-    <h2 style="margin: 65px;">Here are your other moves!</h2>
+    <h2 style="margin: 65px;">Future Moves:</h2>
     <div class="container d-flex flex-wrap justify-content-between" >
       <% @moves.each do |move| %>
         <div class="small-card mb-5 card popup" style="width: 540px;" id="card-div"  data-controller="popup" data-popup-id-value="<%= move.id %>">
@@ -93,7 +96,6 @@
               <% end%>
             <% end %>
           </div>
-          <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
             <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
               <%= move.date.strftime("%d %b %Y") %></h5>
             <br>
@@ -106,7 +108,6 @@
             <br>
             <h6 class="ml-1" >to</h6>
             <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
-          <% end %>
           <br>
           <div class="d-flex justify-content-between">
             <a href="#" data-action="click->popup#open" class="small_button">See details</a>
