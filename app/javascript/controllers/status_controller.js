@@ -14,9 +14,10 @@ export default class extends Controller {
           body: JSON.stringify({ id: this.bididTarget.dataset.bid }),
           headers: { "Content-Type": "application/json" }
         }).then(r => r.text())
-        .then(html =>
-              this.element.outerHTML = html
-          );
+        .then(html => {
+          this.element.outerHTML = html;
+          location.reload();
+        });
   }
 
 }
