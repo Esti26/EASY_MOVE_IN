@@ -1,15 +1,16 @@
- <div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
- <% moves.each do |move| %>
- <%if move.status = "open"%>
+
+<div class="d-none" id="search-markers" data-marker="<%= @markers.to_json %>"></div>
+<% moves.each do |move| %>
+  <%if move.status = "open"%>
     <div class="small-card mb-5" id="card-div">
-      <%= link_to move_path(move.id), data:{}, style:"text-decoration:none;", title: "show this move" do %>
-          <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
-        <br><h6>from</h6>
-        <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
-          <%= move.start_point %></h5>
-        <br><h6 class="ml-1" >to</h6>
-        <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
-      <% end %>
+      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.created_at %></h5>
+      <br>
+      <h6>from</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
+        <%= move.start_point %></h5>
+      <br>
+      <h6 class="ml-1" >to</h6>
+      <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
       <br>
       <div class="link-container justify-content-between d-flex">
         <div><%= link_to "Details", move_path(move.id), class: "small_button" %></div>
@@ -28,5 +29,5 @@
         <% end %>
       </div>
     </div>
-    <%end%>
-  <% end %>
+  <%end%>
+<% end %>
