@@ -14,6 +14,7 @@ class MovesController < ApplicationController
   def create
     @move = Move.new(move_params)
     @move.client_id = current_user.id
+    @move.status = "open"
     if @move.save
       redirect_to client_path, notice: 'moves was successfully created.'
     else
