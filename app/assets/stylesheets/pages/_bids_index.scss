@@ -8,14 +8,17 @@
   padding-left: 15px;
   justify-content: center;
 
-
+  .bids-text {
+    font-family: $headers-font;
+  }
 
   .bid-div-col {
     display: grid;
     justify-content: center;
     width: 150px;
   }
-  .hire-button{
+
+  .hire-button {
     margin-left: 30px;
     margin-right: 15px;
   }
