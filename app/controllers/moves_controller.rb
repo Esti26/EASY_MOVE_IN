@@ -3,8 +3,9 @@ class MovesController < ApplicationController
 
   def show
     @current_user = current_user
-    @moves = Move.all
     @move = Move.find(params[:id])
+    @moves = Move.all
+    @next_move = @moves.where("date > ?", Time.now).first
   end
 
   def new
@@ -56,6 +57,7 @@ class MovesController < ApplicationController
     else
       @moves = Move.all
     end
+    @next_move = @moves.where("date > ?", Time.now).first
 
 
     if params[:filter] == "created"

@@ -5,11 +5,12 @@ class BidsController < ApplicationController
   def index
     if @company = Company.find_by(user_id: current_user.id)
       @bids = Bid.where(company_id: @company.id)
+      @move = Move.find(params[:move_id])
+      @bid = Bid.where(move_id: @move.id)
     else
       @move = Move.find(params[:move_id])
       @bids = Bid.where(move_id: @move.id)
       @hired = @move.status == "pending" && @bids.where(status: "pending").count == 1
-
     end
 
     query = params[:query]
@@ -25,6 +26,7 @@ class BidsController < ApplicationController
   end
 
   def hire
+
     @bid = Bid.find(params[:id])
     @move = @bid.move
     # Perform the necessary updates here
@@ -70,7 +72,7 @@ class BidsController < ApplicationController
     @bid.status = "open"
     @bid.expiration = false
     if @bid.save!
-      redirect_to move_bid_path(@move, @bid)
+      redirect_to company_path
     else
       render :new, status: :unprocessable_entity
     end

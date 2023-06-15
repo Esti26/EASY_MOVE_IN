@@ -11,8 +11,15 @@
       <h6 class="ml-1" >to</h6>
       <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
       <br>
-      <div class="link-container justify-content-between d-flex">
-        <div><a href="#" data-action="click->popup#open" class="small_button">See details</a></div>
+
+      <div class="link-container justify-content-between d-flex" data-controller="popup" data-popup-id-value="<%= move.id %>">
+       <div class="d-flex justify-content-between">
+          <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+        </div>
+          <div id="<%= move.id %>" class="d-none">
+          <%= render "show", move: move %>
+        </div>
+
         <div><%= link_to "", new_chatroom_path, class: "btn fa-solid fa-envelope" %></div>
         <% company = Company.find_by(user_id: current_user) %>
         <% if bid = move.bids.find_by(company_id: company) %>
@@ -24,7 +31,12 @@
             </div>
           </div>
         <% else %>
-          <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+          <%# <%= link_to "Bid", new_move_bid_path(move.id), class: "small_button_goal" %>
+          <a href="#" data-action="click->popup#openbid" class="small_button_goal">Bid</a>
+          </div>
+          <div id="bidform<%= move.id %>" class="d-none">
+            <%= render "bidform", bid: Bid.new , move: move %>
+          </div>
         <% end %>
       </div>
     </div>

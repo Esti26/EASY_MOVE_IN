@@ -19,4 +19,21 @@ export default class extends Controller {
 
     })
   }
+
+  openbid(e) {
+    const show = document.getElementById("bidform"+this.idValue)
+
+    e.stopImmediatePropagation();
+    console.log("this.idValue",this.idValue)
+    Swal.fire({
+      html: show.innerHTML,
+      width: "80vw",
+      heightAuto: false,
+      showConfirmButton: false,
+      // timer: 3000,
+      // timerProgressBar: true,
+      showCloseButton: true,
+
+    })
+  }
 }
