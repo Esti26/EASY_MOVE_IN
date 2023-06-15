@@ -12,8 +12,9 @@ class MovesController < ApplicationController
   end
 
   def create
-    @move = Move.new(start_point: params[:start_point], end_point: params[:end_point], shipment_info: params[:shipment_info], date: params[:date])
+    @move = Move.new(move_params)
     @move.client_id = current_user.id
+    @move.status = "open"
     if @move.save
       redirect_to client_path, notice: 'moves was successfully created.'
     else
@@ -40,7 +41,7 @@ class MovesController < ApplicationController
   def client_index
     @moves = Move.where(client_id: current_user)
     @next_move = @moves.where("date > ?", Time.now).first
-    @moves = @moves.reject { |move| move.id == @next_move.id }
+    @moves = @moves.reject { |move| move.id == @next_move.id } if @moves.length > 1
     @user = User.find(current_user.id)
   end
 
