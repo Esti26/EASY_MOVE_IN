@@ -15,34 +15,9 @@
       </form>
     </div>
   </div>
-
-
   <h1 class="bids-text">Here's your bid, Mr. <%= current_user.last_name %> 💰</h1>
 
-
-      <div class="movescard d-flex justify-content-center" id="client-index">
-        <div class="card">
-       
-          <div id="indexcard" class="card-body">
-              <% @move.bids.where(company_id: @company) %>
-            </div>
-              <span id="showcards" class="card-title">
-                <i class="iconmove fa-solid fa-calendar" style="color: #f66b0e;"></i>
-                <%= @move.date.strftime("%d %b %Y") %>
-              </span>
-              <span id="showcards" class="card-title">
-                <i class="iconmove fa-regular fa-clock" style="color: #f66b0e;"></i>
-                <%= @move.date.strftime("%l:%m %p") %>
-              </span>
-              <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-location-dot" style="color: #f66b0e;"></i> From: <%= @move.start_point %></span>
-              <span id="showcards" class="card-text"><i class="iconmove fa-solid fa-map-pin" style="color: #f66b0e;"></i> To: <%= @move.end_point %></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
+<%=  render "company_bids", bids: @bids %>
 
 
 <% elsif Client.find_by(user_id: current_user.id) && @move.bids.present?%>

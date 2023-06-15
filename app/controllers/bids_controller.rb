@@ -3,10 +3,9 @@ class BidsController < ApplicationController
   skip_forgery_protection
 
   def index
-    if @company = Company.find_by(user_id: current_user.id)
+    @company = Company.find_by(user_id: current_user.id)
+    if @company
       @bids = Bid.where(company_id: @company.id)
-      @move = Move.find(params[:move_id])
-      @bid = Bid.where(move_id: @move.id)
     else
       @move = Move.find(params[:move_id])
       @bids = Bid.where(move_id: @move.id)
