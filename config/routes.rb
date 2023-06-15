@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   end
   resources :bids, only: [:show]
 
+  patch '/companies/bids', to: 'bids#confirm', as: 'confirm_bid'
   patch 'moves/:move_id/bids/:id/hire', to: 'bids#hire', as: 'hire_bid'
   get "/bids", to: "bids#index", as: "bids"
   get "/clients", to: "moves#client_index", as: "client"
   get "/companies", to: "moves#company_index", as: "company"
   get "/companies/bids", to: "bids#index", as: "company_bids"
+  post "/update_bid_status", to: "bids#update_bid_status"
 
   resources :company do
     resources :reviews, only: %i[new create edit delete update]
