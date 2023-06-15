@@ -1,77 +1,76 @@
- <div  class="container-full" data-controller="status" >
-        <div data-tabs-target="tab" id="one">
-              <div class="movescard" id="client-index">
-                <% bids.where(status: "open").each do |bid|%>
-              <div class="card" data-status-target="bidid" data-bid="<%= bid.id %>">
-                <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
-                    <div class="status-icon">
-                      <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
-                    </div>
-                  </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
-                  <div class="d-flex justify-content-between" >
-                    <a href="#" data-action="click->popup#open" class="small_button">contact the client</a>
-                   <a href="#" data-action="click->popup#open" class="small_button">See details</a>
-                  </div>
-                </div>
+<div  class="container-full" data-controller="status" >
+  <div data-tabs-target="tab" id="one">
+    <div class="movescard" id="client-index">
+      <% bids.where(status: "open").each do |bid|%>
+        <div class="card" data-status-target="bidid" data-bid="<%= bid.id %>">
+          <div id="indexcard" class="card-body">
+            <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
+              <div class="status-icon">
+                <h6> <i class="fa-solid fa-arrow-rotate-right"></i> <%= bid.status %></h6>
               </div>
-              <div id="<%= bid.id%>" class="d-none">
-                <%= render "bids_show", bid: bid %>
-              </div>
-            <% end %>
+            </h5>
+            <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
+            <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
+            <div class="d-flex justify-content-between" >
+              <a href="#" data-action="click->popup#open" class="small_button">contact the client</a>
+              <a href="#" data-action="click->popup#open" class="small_button">See details</a>
+            </div>
           </div>
         </div>
-        <div data-tabs-target="tab" id="two">
-              <div class="movescard" id="client-index">
-                <% bids.where(status: "pending").each do |bid|%>
-              <div class="card" data-status-target="bidid" data-bid="<%= bid.id %>">
-                <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
-                    <div class="status-icon">
-                        <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
-                    </div>
-                  </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
-                  <div class="d-flex justify-content-between" >
-                    <a href="#" data-action="click->status#open" class="small_button">See details</a>
-                    <% if !@confirmed %>
-                     <button class="small_button_goal" data-action="click->status#update"> Confirm</button>
-                    <% end %>
-
-                  </div>
-                </div>
+        <div id="<%= bid.id%>" class="d-none">
+          <%= render "bids_show", bid: bid %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div data-tabs-target="tab" id="two">
+    <div class="movescard" id="client-index">
+      <% bids.where(status: "pending").each do |bid|%>
+        <div class="card" data-status-target="bidid" data-bid="<%= bid.id %>">
+          <div id="indexcard" class="card-body">
+            <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
+              <div class="status-icon">
+                <h6> <i class="fa-solid fa-arrows-rotate fa-spin"> </i><%= bid.status %> </h6>
               </div>
-              <div id="<%= bid.id%>" class="d-none">
-                <%= render "bids_show", bid: bid %>
-              </div>
-            <% end %>
+            </h5>
+            <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
+            <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
+            <div class="d-flex justify-content-between" >
+              <a href="#" data-action="click->status#open" class="small_button">See details</a>
+              <% if !@confirmed %>
+                <button class="small_button_goal" data-action="click->status#update"> Confirm</button>
+              <% end %>
+            </div>
           </div>
         </div>
+        <div id="<%= bid.id%>" class="d-none">
+          <%= render "bids_show", bid: bid %>
         </div>
-        <div data-tabs-target="tab" id="abc">
-              <div class="movescard" id="client-index">
-                <% bids.where(status: "confirmed").each do |bid|%>
-              <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
-                <div id="indexcard" class="card-body">
-                  <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
-                    <div class="status-icon">
-                        <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
-                    </div>
-                  </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
-                  <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
-                  <div class="d-flex justify-content-between" >
-                    <a href="#" data-action="click->popup#open" class="small_button">See details</a>
-                  </div>
-                </div>
-              </div>
-              <div id="<%= bid.id%>" class="d-none">
-                <%= render "bids_show", bid: bid %>
-              </div>
-            <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div data-tabs-target="tab" id="abc">
+  <div class="movescard" id="client-index">
+    <% bids.where(status: "confirmed").each do |bid|%>
+      <div class="card" data-controller="popup" data-popup-id-value="<%= bid.id %>">
+        <div id="indexcard" class="card-body">
+          <h5 id="indexcard" class="card-title-for-status"><i class="iconmove fa-solid fa-building" style="color: #f66b0e;"></i><%= Company.find(bid.company_id).name %>
+            <div class="status-icon">
+              <h6> <i class="fa-solid fa-square-check" style="color: #73c431;"> </i> <%= bid.status %></h6>
+            </div>
+          </h5>
+          <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-tag" style="color: #f66b0e;"></i><%= bid.price %>€ </h5>
+          <h5 id="indexcard" class="card-text"><i class="iconbid fa-solid fa-thumbs-up " style="color: #f66b0e;"></i><%= "⭐" * rand(1..5) %></h5>
+          <div class="d-flex justify-content-between" >
+            <a href="#" data-action="click->popup#open" class="small_button">See details</a>
           </div>
         </div>
       </div>
+      <div id="<%= bid.id%>" class="d-none">
+        <%= render "bids_show", bid: bid %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
