@@ -73,6 +73,7 @@ class BidsController < ApplicationController
     @bid.company_id = @company.id
     @bid.status = "open"
     @bid.expiration = false
+    bids_generator
     if @bid.save!
       redirect_to company_path
     else
@@ -104,5 +105,18 @@ class BidsController < ApplicationController
 
   def bid_params
     params.require(:bid).permit(:price, :status, :expiration, :move_id, :company_id)
+  end
+
+  def bids_generator
+    bid1 = Bid.create(price: 100,status: "open", expiration: false,move: @move,company_id: Company.find_by(user_id: User.find_by(first_name: "Emma").id).id)
+    bid2 = Bid.create(price: 200,status: "open", expiration: false,move: @move,company_id: Company.find_by(user_id: User.find_by(first_name: "Josh").id).id)
+    bid3 = Bid.create(price: 140,status: "open",expiration: false,move: @move,company_id: Company.find_by(user_id: User.find_by(first_name: "Zakarya").id).id)
+    bid4 = Bid.create(price: 180,status: "open", expiration: false,move: @move,company_id: Company.find_by(user_id: User.find_by(first_name: "Pedro").id).id)
+    bid5 = Bid.create(price: 120,status: "open", expiration: false,move: @move,company_id: Company.find_by(user_id: User.find_by(first_name: "Santi").id).id)
+    bid1.save!
+    bid2.save!
+    bid3.save!
+    bid4.save!
+    bid5.save!
   end
 end
