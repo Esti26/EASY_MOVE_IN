@@ -37,7 +37,7 @@ User.create(email: 'pedro@example.com', password: "123456", profile_pic: "/app/a
 
 puts "Creating Company"
 Company.create(name: "Realiable Move", user_id: User.find_by(first_name: "Adam").id, address: "Leipziger Str. 32, Berlin")
-Company.create(name: "Umzug", user_id: User.find_by(first_name: "Lisa").id, address: "Unter den Linden 2, Berlin")
+Company.create(name: "Umzug", user_id: User.find_by(first_name: "Esti").id, address: "Unter den Linden 2, Berlin")
 Company.create(name: "Unreliable Move", user_id: User.find_by(first_name: "Emma").id, address: "Unter den Linden 12, Berlin")
 Company.create(name: "Beginners Moving", user_id: User.find_by(first_name: "Zakarya").id, address: "Unter den Linden 42, Berlin")
 Company.create(name: "Move-it Move-it", user_id: User.find_by(first_name: "Josh").id, address: "Unter den Linden 22, Berlin")
@@ -45,7 +45,6 @@ Company.create(name: "Move-it Lose-it", user_id: User.find_by(first_name: "Santi
 Company.create(name: "Belldozer", user_id: User.find_by(first_name: "Pedro").id, address: "Unter den Linden 21, Berlin")
 
 puts "Creating Client"
-Client.create(user_id: User.find_by(first_name: "Esti").id)
 Client.create(user_id: User.find_by(first_name: "Ahmed").id)
 Client.create(user_id: User.find_by(first_name: "Madhava").id)
 Client.create(user_id: User.find_by(first_name: "William").id)
@@ -72,7 +71,7 @@ Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.ne
 Move.create(client_id: User.find_by(first_name: "Madhava").id, date: DateTime.new(2023, 7, 23, 10, 0, 0), start_point: "Charlottenstr. 12, Berlin", end_point: "Alexanderplatz 203, Berlin", shipment_info: "My biggest item is a piano", status:"confirmed", expiration: expiration_date)
 
 puts "Creating Review"
-Review.create(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Esti").id, efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
+Review.create(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "William").id, efficiency_rating: 2, punctuality_rating: 4, politeness_rating: 3, content: "Good company but not too careful with the boxes", image: "/app/assets/images/broken_box.png" )
 Review.create(company_id: Company.find_by(name: "Umzug").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 2, politeness_rating: 5, content: "They were very polite but one hour late!",image: "/app/assets/images/broken_box.png"  )
 Review.create(company_id: Company.find_by(name: "Realiable Move").id, client_id: User.find_by(first_name: "Madhava").id, efficiency_rating: 5, punctuality_rating: 5, politeness_rating: 5, content: "Very good company, would recommend it to anyone", image: "/app/assets/images/perfect_service.png" )
 
