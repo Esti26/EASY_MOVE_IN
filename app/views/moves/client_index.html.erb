@@ -65,6 +65,7 @@
       <% elsif @next_move.status=="pending" %>
         <div style="width: 540px;padding: 122px;margin-left: 65px;">
           You have now hired a company for your move. Now wait for the company to confirm that they are still available on that date!
+
         </div>
       <% else %>
         <div style="width: 540px;padding: 122px;margin-left: 65px;">
@@ -96,12 +97,24 @@
               <% end%>
             <% end %>
           </div>
-            <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
-              <%= move.date.strftime("%d %b %Y") %></h5>
-            <br>
-            <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
-              <%= move.date.strftime("%l:%m %p") %></h5>
-            <br>
+              <h5 class="card-title"> <i class="fa-solid fa-calendar" style="color: #f66b0e"></i>
+                <%= move.date.strftime("%d %b %Y") %></h5>
+              <br>
+            <div class= "d-flex justify-content-between ">
+              <h5 class="card-title"><i class="fa-regular fa-clock" style="color: #f66b0e"></i>
+                <%= move.date.strftime("%l:%m %p") %></h5>
+              <br>
+              <div class= "d-flex position-absolute flex-column flex-wrap move-photo">
+              <% if  move.bids.present? && move.bids.where("status = 'confirmed' OR status = 'pending'").count > 0 %>
+                <div>
+                <h4 id="hired">You hired:</h4>
+                <h5><%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.company.name  %> </h5>
+                <h5>Bid price: <%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.price  %> € </h5>
+                <%= image_tag "#{User.find(move.bids.where("status = 'confirmed' OR status = 'pending'").first.company.user_id).first_name}.jpg", class:"avatar-foto" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
             <h6>from</h6>
             <h5 class="card-title"> <i class="fa-solid fa-location-dot" style="color: #f66b0e"></i>
               <%= move.start_point %></h5>
@@ -109,6 +122,7 @@
             <h6 class="ml-1" >to</h6>
             <h5 class="card-title"> <i class="fa-solid fa-map-pin"></i> <%= move.end_point %></h5>
           <br>
+
           <div class="d-flex justify-content-between">
             <a href="#" data-action="click->popup#open" class="small_button">See details</a>
             <%= link_to "Edit", edit_move_path(move.id), class: "small_button" %>
