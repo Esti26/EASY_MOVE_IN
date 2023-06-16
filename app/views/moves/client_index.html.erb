@@ -106,10 +106,10 @@
               <br>
               <div class= "d-flex position-absolute flex-column flex-wrap move-photo">
               <% if  move.bids.present? && move.bids.where("status = 'confirmed' OR status = 'pending'").count > 0 %>
-                <div>
+                <div class="small-card" id="hiredcard">
                 <h4 id="hired">You hired:</h4>
-                <h5><%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.company.name  %> </h5>
-                <h5>Bid price: <%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.price  %> € </h5>
+                <h5 ><i class="iconmove fa-solid fa-building " style="color: #f66b0e;"></i><%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.company.name  %> </h5>
+                <h5 style="color: #f66b0e" >Bid price: <%=  move.bids.where("status = 'confirmed' OR status = 'pending'").first.price  %> € </h5>
                 <%= image_tag "#{User.find(move.bids.where("status = 'confirmed' OR status = 'pending'").first.company.user_id).first_name}.jpg", class:"avatar-foto" %>
                 </div>
               <% end %>
