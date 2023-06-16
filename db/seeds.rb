@@ -29,10 +29,20 @@ User.create(email: 'madhava@example.com', password: "123456", profile_pic: "/app
 User.create(email: 'william@example.com', password: "123456", profile_pic: "/app/assets/images/William.jpg", first_name: "William", last_name: "Dela Rosa")
 User.create(email: 'adam@example.com', password: "123456", profile_pic: "/app/assets/images/Adam.jpg", first_name: "Adam", last_name: "White")
 User.create(email: 'lisa@example.com', password: "123456", profile_pic: "/app/assets/images/Lisa.jpg", first_name: "Lisa", last_name: "Black")
+User.create(email: 'emma@example.com', password: "123456", profile_pic: "/app/assets/images/emma.jpg", first_name: "Emma", last_name: "Rüntzel")
+User.create(email: 'zak@example.com', password: "123456", profile_pic: "/app/assets/images/zak.jpg", first_name: "Zakarya", last_name: "Kartti")
+User.create(email: 'josh@example.com', password: "123456", profile_pic: "/app/assets/images/josh.jpg", first_name: "Josh", last_name: "Smith")
+User.create(email: 'santi@example.com', password: "123456", profile_pic: "/app/assets/images/santi.jpg", first_name: "Santi", last_name: "Sanchez")
+User.create(email: 'pedro@example.com', password: "123456", profile_pic: "/app/assets/images/pedro.jpg", first_name: "Pedro", last_name: "Braga")
 
 puts "Creating Company"
 Company.create(name: "Realiable Move", user_id: User.find_by(first_name: "Adam").id, address: "Leipziger Str. 32, Berlin")
 Company.create(name: "Umzug", user_id: User.find_by(first_name: "Lisa").id, address: "Unter den Linden 2, Berlin")
+Company.create(name: "Unreliable Move", user_id: User.find_by(first_name: "Emma").id, address: "Unter den Linden 12, Berlin")
+Company.create(name: "Beginners Moving", user_id: User.find_by(first_name: "Zakarya").id, address: "Unter den Linden 42, Berlin")
+Company.create(name: "Move-it Move-it", user_id: User.find_by(first_name: "Josh").id, address: "Unter den Linden 22, Berlin")
+Company.create(name: "Move-it Lose-it", user_id: User.find_by(first_name: "Santi").id, address: "Unter den Linden 20, Berlin")
+Company.create(name: "Belldozer", user_id: User.find_by(first_name: "Pedro").id, address: "Unter den Linden 21, Berlin")
 
 puts "Creating Client"
 Client.create(user_id: User.find_by(first_name: "Esti").id)
