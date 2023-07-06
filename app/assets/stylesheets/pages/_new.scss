@@ -5,7 +5,8 @@
 
   border-radius: 10px;
   width: 30%;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   input[type="email"], input[type="password"]  {
     background-color: transparent !important;
@@ -39,8 +40,8 @@
     height: 50px;
 
     &:hover {
-    background: linear-gradient(172deg, rgba(152,146,231,1) 9%, rgba(141,76,241,1) 41%, rgba(205,60,240,1) 80%);
-    text-decoration-color: white;
+    background: linear-gradient(90deg, rgba(17,43,60,1) 20%, rgba(246,107,14,1) 100%);
+    color: white;
     transition: 0.5s;
 
   }
@@ -50,8 +51,12 @@
     color: white;
   }
   #forgot-pass-div{
-    margin-top: 130px;
-    grid-gap: 80px;
+    margin-top: 75px;
+    // grid-gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: -15%;
+
   }
   #input-div{
     input::placeholder {
