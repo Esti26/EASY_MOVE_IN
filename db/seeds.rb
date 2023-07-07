@@ -44,7 +44,7 @@ Company.create(name: "Move-it Move-it", user_id: User.find_by(first_name: "Josh"
 Company.create(name: "Move-it Lose-it", user_id: User.find_by(first_name: "Santi").id, address: "Unter den Linden 20, Berlin")
 Company.create(name: "Belldozer", user_id: User.find_by(first_name: "Pedro").id, address: "Unter den Linden 21, Berlin")
 
-puts "Creating Client"
+puts "Creating Client"r
 Client.create(user_id: User.find_by(first_name: "Ahmed").id)
 Client.create(user_id: User.find_by(first_name: "Madhava").id)
 Client.create(user_id: User.find_by(first_name: "William").id)
