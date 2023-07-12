@@ -128,9 +128,6 @@ GEM
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -273,7 +270,6 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   geocoder
   importmap-rails
-  jbuilder
   pg (~> 1.1)
   pg_search
   puma (~> 5.0)
