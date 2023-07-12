@@ -8,9 +8,14 @@
 
             <%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } } %>
 
-            <%= f.input :start_point, input_html: { data: { address_autocomplete_target: "start_point" } }, wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+            <%= f.input :start_point,
+                        input_html:  {data: { address_autocomplete_target: "start_point" }, class: "d-none"},
+                        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
 
-            <%= f.input :end_point %>
+            <%= f.input :end_point,
+                        input_html: { data: { address_autocomplete_target: "end_point" }, class: "d-none" },
+                        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+
 
             <%= f.input :shipment_info %>
 
