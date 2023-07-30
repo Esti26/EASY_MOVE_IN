@@ -285,7 +285,7 @@ h2 {
 
 .slide-track {
   display: flex;
-  width: calc(300px * 8);
+  width: calc(300px * 16);
   animation: scroll 40s linear infinite;
 }
 
@@ -299,7 +299,7 @@ h2 {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-300px * 8));
+    transform: translateX(calc(-300px * 16));
   }
 }
 
