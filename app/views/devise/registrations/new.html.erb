@@ -1,8 +1,7 @@
-<div class="container-fluid d-flex " style= "hight: 100vh;" id="login">
-  <div id="reg-img-div"class="container col-9">
-  </div>
-  <div class="container col-3 d-flex justify-content-center align-items-center">
-    <div>
+<div class="container-fluid d-flex " style= "height: 100vh;" id="login">
+  <div id="reg-img-div"class="container col-9"></div>
+  <div class="col-3 d-flex justify-content-center align-items-center">
+    <div class="sing-up-form">
       <h2>Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -23,8 +22,8 @@
 
         <div class="form-actions">
           <%= f.button :submit, "Sign up" %>
-          <div><%= render "devise/shared/links" %></div>
         </div>
+          <div class="login">Do you already have an account?<%= render "devise/shared/links" %></div>
       <% end %>
     </div>
   </div>
