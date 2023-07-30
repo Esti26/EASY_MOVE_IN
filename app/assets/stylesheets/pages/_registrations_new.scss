@@ -1,7 +1,51 @@
+.container-fluid {
+  margin-right: 0px;
+}
+
 #reg-img-div{
   background-image: url("https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80");
   align-items:flex-start;
-  height: 90vh;
   margin: -16px;
-  background-size: contain;
+  height:102vh ;
+  // background-size: contain;
+}
+
+.form-control {
+  width: 320px;
+}
+
+h2 {
+  text-align: center;
+  margin-left: 70px;
+}
+
+.form-inputs {
+  font-size: 20px;
+}
+
+
+.form-actions {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  .btn {
+    background-color: #F66B0E;
+    border-radius: 10%;
+    color: white;
+  }
+}
+
+.login{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+#new_user.simple_form.new_user{
+  width: 350px;
+  margin-left: 67px;
+  margin-top: 15px;
 }
